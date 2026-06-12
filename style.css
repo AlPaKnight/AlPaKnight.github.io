@@ -1,134 +1,685 @@
-/* =========================
-   VARIABLES DE COULEURS
-========================= */
+/* ==========================================================================
+   PALETTE DE COULEURS & DESIGN TOKENS (Fidèle à l'Image 2)
+   ========================================================================== */
 :root {
-  --vert: #2C3E2D;
-  --vert-clair: #4A6741;
-  --fond: #F5F0E8;
-  --blanc: #FDFAF5;
-  --texte: #1E2820;
-  --texte-soft: #5A5549;
+    /* Mode Clair (Exactement comme la capture d'écran 2) */
+    --color-bg-cream: #F5F2EA;           /* Fond chaud blanc cassé / crème */
+    --color-primary-green: #1E3525;      /* Vert forêt profond très élégant */
+    --color-accent-copper: #967B66;      /* Teinte cuivrée/terreuse des textes italiques */
+    --color-text-dark: #1E2520;          /* Texte principal lisible */
+    --color-text-muted: #5A625C;         /* Texte secondaire plus doux */
+    --color-navbar-bg: rgba(245, 242, 234, 0.85);
+    --color-card-bg: #EFECE3;            /* Fond de carte M3 subtilement plus sombre */
+    --color-card-border: rgba(30, 53, 37, 0.08);
+
+    /* Polices d'écriture */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Courbures Pill / Coins arrondis Material 3 */
+    --radius-pill: 9999px;
+    --radius-m3-large: 24px;
+    --radius-m3-card: 16px;
+    
+    /* Animation fluide signature */
+    --m3-transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* DEVIENT COMPLÈTEMENT NOIR/VERT FORÊT NOCTURNE (Comme la 1ère image) */
 [data-theme="dark"] {
-  --vert: #0F2A1D;
-  --vert-clair: #1F4D36;
-  --fond: #0B0F0C;
-  --blanc: #121714;
-  --texte: #E8F0EA;
-  --texte-soft: #9FB3A7;
+    /* Mode Sombre Organique (Forêt Nocturne) */
+    --color-bg-cream: #0B0F0C;           /* Fond sombre vert-noir */
+    --color-primary-green: #A3D9AE;      /* Vert pastel lumineux et doux pour l'accessibilité */
+    --color-accent-copper: #D9BEA7;      /* Cuivre adouci */
+    --color-text-dark: #E2E8E4;          /* Texte clair */
+    --color-text-muted: #9BB0A2;
+    --color-navbar-bg: rgba(11, 15, 12, 0.85);
+    --color-card-bg: #141B16;
+    --color-card-border: rgba(163, 217, 174, 0.12);
 }
 
-/* =========================
-   REGLES DE BASE
-========================= */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--fond);
-  color: var(--texte);
-  padding-top: 60px; /* Évite la superposition sous la barre fixe */
-}
-
-h1, h2 {
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
-}
-
-section {
-  padding: 100px 20px;
-  max-width: 800px;
-  margin: auto;
-}
-
-/* =========================
-   BARRE DE NAVIGATION FIXE
-========================= */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: var(--fond);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  z-index: 1000;
-}
-
-nav a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: var(--texte-soft);
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: var(--vert);
-}
-
-/* =========================
-   BOUTONS DE CONTROLE (UI)
-========================= */
-button {
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid var(--texte-soft);
-  color: var(--texte);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-family: 'Inter', sans-serif;
-}
-
-.controls {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-#themeToggle {
-  border: none;
-  font-size: 1.2rem;
-  padding: 0;
-}
-
-.lang-toggle button.active {
-  background: var(--vert);
-  color: white;
-  border-color: var(--vert);
-}
-
-/* =========================
-   BOUTON GUMROAD PERSONALISÉ
-========================= */
-.cta-container {
-  margin-top: 32px;
-}
-
-.btn-gumroad {
-  display: inline-block;
-  background-color: var(--vert);
-  color: white !important; /* Reste lisible quel que soit le thème */
-  text-decoration: none;
-  padding: 12px 28px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: background-color 0.2s, transform 0.2s;
-}
-
-.btn-gumroad:hover {
-  background-color: var(--vert-clair);
-  transform: translateY(-1px);
-}
-
-/* =========================
-   TRANSITIONS FLUIDES MATÉRIELLES
-========================= */
+/* ==========================================================================
+   RESETS & DIRECTIVES ARCHITECTURALES MULTILINGUES
+   ========================================================================== */
 * {
-  transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-cream);
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color var(--m3-transition), color var(--m3-transition);
+}
+
+/* Moteur d'affichage des langues (Masquage / Affichage parfait sans flash) */
+body.lang-fr .lang-en { display: none !important; }
+body.lang-en .lang-fr { display: none !important; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.container-narrow {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   NAVBAR COMPLÈTE (Fidèle à la maquette)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--color-navbar-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    transition: background-color var(--m3-transition);
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--color-text-dark);
+}
+
+.logo-accent {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent-copper);
+    margin-left: 1px;
+}
+
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+/* Bouton Pill "Obtenir l'ebook" dans la navbar */
+.btn-nav-cta {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream) !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: var(--radius-pill);
+    transition: var(--m3-transition);
+}
+
+.btn-nav-cta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(30, 53, 37, 0.15);
+}
+
+/* Zone boutons Thème & Langues */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.theme-btn {
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--m3-transition);
+}
+
+[data-theme="dark"] .theme-btn {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.theme-btn:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.lang-picker {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 3px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .lang-picker {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.lang-picker button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+    transition: var(--m3-transition);
+}
+
+.lang-picker button.active {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream);
+}
+
+/* ==========================================================================
+   HERO SECTION (Reproduction au pixel près de l'Image 2)
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 24px 80px;
+    position: relative;
+    
+    /* Image forestière en arrière-plan avec voile crème adouci */
+    background-image: linear-gradient(
+        to right, 
+        rgba(245, 242, 234, 0.92) 30%, 
+        rgba(245, 242, 234, 0.75) 100%
+    ), 
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    transition: background-image var(--m3-transition);
+}
+
+/* Surcharge adaptative pour le fond en mode sombre */
+[data-theme="dark"] .hero {
+    background-image: linear-gradient(
+        to right, 
+        rgba(11, 15, 12, 0.94) 30%, 
+        rgba(11, 15, 12, 0.82) 100%
+    ), 
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1950&q=80');
+}
+
+.hero-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: left; /* Alignement strict à gauche comme l'image */
+}
+
+/* Badge M3 oblong avec bordure fine */
+.hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(30, 53, 37, 0.25);
+    padding: 6px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+}
+
+[data-theme="dark"] .hero-badge {
+    border-color: rgba(163, 217, 174, 0.3);
+}
+
+/* Titre principal massif Serif */
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--color-primary-green);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+}
+
+/* L'accentuation "vie numérique" */
+.italic-accent {
+    font-style: italic;
+    color: var(--color-accent-copper);
+    font-weight: 400;
+}
+
+/* Paragraphe d'introduction */
+.hero-lead {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--color-text-muted);
+    max-width: 620px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Conteneur d'actions */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+/* Gros bouton pill primaire */
+.btn-hero-primary {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 16px 36px;
+    border-radius: var(--radius-pill);
+    transition: var(--m3-transition);
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 53, 37, 0.2);
+}
+
+/* Lien d'histoire secondaire */
+.btn-hero-secondary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: opacity 0.2s ease;
+}
+
+.btn-hero-secondary:hover {
+    opacity: 0.8;
+}
+
+.btn-hero-secondary .chevron {
+    font-size: 1.1rem;
+    color: var(--color-accent-copper);
+}
+
+/* ==========================================================================
+   SECTIONS CONTENU GENERAL (Qui suis-je, Histoire, Modules)
+   ========================================================================== */
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--color-primary-green);
+    margin-bottom: 24px;
+}
+
+/* Histoire */
+.section-about {
+    background-color: rgba(0, 0, 0, 0.015);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+/* Modules */
+.modules-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+/* Cartes épurées et interactives Material 3 */
+.module-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-m3-card);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: var(--m3-transition);
+}
+
+.module-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-primary-green);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+}
+
+.card-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-copper);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.card-meta span {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+}
+
+.module-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--color-text-dark);
+}
+
+.module-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+.btn-card-action {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary-green);
+    text-align: left;
+    cursor: pointer;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    border-top: 1px solid rgba(0,0,0,0.04);
+    padding: 40px 0;
+    background-color: var(--color-bg-cream);
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.email-link {
+    color: var(--color-primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   MODAL WINDOW (Dialogue de surface Material 3)
+   ========================================================================== */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+}
+
+.modal-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-window {
+    background-color: var(--color-bg-cream);
+    border: 1px solid var(--color-card-border);
+    padding: 40px;
+    border-radius: var(--radius-m3-large);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+}
+
+.modal-backdrop.visible .modal-window {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close-icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    line-height: 0.5;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.modal-badge-number {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream);
+    font-weight: 600;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    border-radius: var(--radius-pill);
+}
+
+#modalTitle {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--color-primary-green);
+}
+
+.modal-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.modal-bullets li {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    position: relative;
+    padding-left: 24px;
+    line-height: 1.5;
+}
+
+.modal-bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-copper);
+    font-weight: bold;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-modal-close {
+    background-color: var(--color-card-bg);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-card-border);
+    padding: 12px 28px;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   OPTIMISATIONS ÉCRANS MOBILES (Responsive Design)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Navbar compacte */
+    .nav-links, .btn-nav-cta {
+        display: none !important; /* Masque les liens encombrants sur mobile */
+    }
+    .nav-container {
+        padding: 12px 16px;
+    }
+    
+    /* Section d'accueil ajustée */
+    .hero {
+        padding: 100px 16px 40px;
+        background-image: linear-gradient(
+            to bottom, 
+            rgba(245, 242, 234, 0.96) 50%, 
+            rgba(245, 242, 234, 0.85) 100%
+        ), 
+        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1950&q=80');
+    }
+    [data-theme="dark"] .hero {
+        background-image: linear-gradient(
+            to bottom, 
+            rgba(11, 15, 12, 0.96) 50%, 
+            rgba(11, 15, 12, 0.88) 100%
+        ), 
+        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1950&q=80');
+    }
+    .hero-badge {
+        margin-bottom: 20px;
+        font-size: 0.65rem;
+        padding: 4px 12px;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+    .hero-lead {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    .btn-hero-primary {
+        text-align: center;
+        padding: 14px 24px;
+    }
+    .btn-hero-secondary {
+        justify-content: center;
+    }
+
+    /* Sections générales */
+    section {
+        padding: 60px 0;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .modules-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .module-card {
+        padding: 24px;
+    }
+
+    /* Fenêtres modales */
+    .modal-window {
+        padding: 24px;
+    }
+    #modalTitle {
+        font-size: 1.4rem;
+    }
+
+    /* Pied de page */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
 }

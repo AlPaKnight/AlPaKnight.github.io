@@ -1,55 +1,49 @@
 /* ==========================================================================
-   VARIABLES & DESIGN TOKENS (Inspiré de Material 3)
+   PALETTE DE COULEURS & DESIGN TOKENS (Fidèle à l'Image 2)
    ========================================================================== */
 :root {
-    /* Mode Clair - Palette Terreuse / Forêt M3 */
-    --md-sys-color-primary: #2C5234;       /* Vert Forêt profond signature */
-    --md-sys-color-on-primary: #FFFFFF;
-    --md-sys-color-primary-container: #D2E8D4;
-    --md-sys-color-on-primary-container: #00210A;
-    --md-sys-color-surface: #FCFAF6;       /* Blanc cassé / Crème chaleureux */
-    --md-sys-color-on-surface: #1A1C19;
-    --md-sys-color-surface-variant: #F0EDE6; 
-    --md-sys-color-on-surface-variant: #434842;
-    --md-sys-color-outline: #737971;
-    --md-sys-color-background: #F6F4EE;
+    /* Mode Clair (Exactement comme la capture d'écran 2) */
+    --color-bg-cream: #F5F2EA;           /* Fond chaud blanc cassé / crème */
+    --color-primary-green: #1E3525;      /* Vert forêt profond très élégant */
+    --color-accent-copper: #967B66;      /* Teinte cuivrée/terreuse des textes italiques */
+    --color-text-dark: #1E2520;          /* Texte principal lisible */
+    --color-text-muted: #5A625C;         /* Texte secondaire plus doux */
+    --color-navbar-bg: rgba(245, 242, 234, 0.85);
+    --color-card-bg: #EFECE3;            /* Fond de carte M3 subtilement plus sombre */
+    --color-card-border: rgba(30, 53, 37, 0.08);
 
-    /* Typographies standardisées */
+    /* Polices d'écriture */
     --font-display: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-    
-    /* Rayons de courbure de type Material 3 */
-    --radius-small: 8px;
-    --radius-medium: 16px;
-    --radius-large: 28px; /* Pour les structures de type Pill / FAB */
-    --radius-full: 9999px;
 
-    /* Transitions fluides globales */
-    --motion-short: cubic-bezier(0.2, 0, 0, 1);
+    /* Courbures Pill / Coins arrondis Material 3 */
+    --radius-pill: 9999px;
+    --radius-m3-large: 24px;
+    --radius-m3-card: 16px;
+    
+    /* Animation fluide signature */
+    --m3-transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 [data-theme="dark"] {
-    /* Mode Sombre - Palette Forêt Nocturne M3 */
-    --md-sys-color-primary: #97D5A0;       /* Vert pastel lumineux en sombre */
-    --md-sys-color-on-primary: #003917;
-    --md-sys-color-primary-container: #134B29;
-    --md-sys-color-on-primary-container: #B3F2BC;
-    --md-sys-color-surface: #111411;       /* Fond sombre organique noir-vert */
-    --md-sys-color-on-surface: #E2E3DD;
-    --md-sys-color-surface-variant: #222622;
-    --md-sys-color-on-surface-variant: #C3C8C0;
-    --md-sys-color-outline: #8D938B;
-    --md-sys-color-background: #0B0E0B;
+    /* Mode Sombre Organique (Forêt Nocturne) */
+    --color-bg-cream: #0B0F0C;           /* Fond sombre vert-noir */
+    --color-primary-green: #A3D9AE;      /* Vert pastel lumineux et doux pour l'accessibilité */
+    --color-accent-copper: #D9BEA7;      /* Cuivre adouci */
+    --color-text-dark: #E2E8E4;          /* Texte clair */
+    --color-text-muted: #9BB0A2;
+    --color-navbar-bg: rgba(11, 15, 12, 0.85);
+    --color-card-bg: #141B16;
+    --color-card-border: rgba(163, 217, 174, 0.12);
 }
 
 /* ==========================================================================
-   RESET & STRUCTURE GENERALE
+   RESETS & DIRECTIVES ARCHITECTURALES MULTILINGUES
    ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    transition: background-color 0.4s var(--motion-short), color 0.3s var(--motion-short), border-color 0.3s var(--motion-short);
 }
 
 html {
@@ -58,30 +52,47 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-surface);
-    line-height: 1.6;
-    overflow-x: hidden;
+    background-color: var(--color-bg-cream);
+    color: var(--color-text-dark);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    transition: background-color var(--m3-transition), color var(--m3-transition);
+}
+
+/* Moteur d'affichage des langues (Masquage / Affichage parfait sans flash) */
+body.lang-fr .lang-en { display: none !important; }
+body.lang-en .lang-fr { display: none !important; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.container-narrow {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 /* ==========================================================================
-   NAVIGATION (Top App Bar Style)
+   NAVBAR COMPLÈTE (Fidèle à la maquette)
    ========================================================================== */
-.top-app-bar {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
-    background-color: rgba(var(--md-sys-color-surface), 0.85);
+    z-index: 1000;
+    background-color: var(--color-navbar-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(var(--md-sys-color-outline), 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    transition: background-color var(--m3-transition);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 16px 24px;
     display: flex;
@@ -89,66 +100,104 @@ body {
     justify-content: space-between;
 }
 
-.brand-title {
+.nav-logo {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 1.3rem;
-    color: var(--md-sys-color-primary);
+    font-size: 1.4rem;
     text-decoration: none;
+    color: var(--color-text-dark);
+}
+
+.logo-accent {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-accent-copper);
+    margin-left: 1px;
+}
+
+.nav-center {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 .nav-links {
     display: flex;
-    gap: 24px;
+    gap: 28px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--color-text-dark);
     font-weight: 500;
     font-size: 0.95rem;
-    padding: 6px 12px;
-    border-radius: var(--radius-small);
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: var(--md-sys-color-primary);
-    background-color: rgba(var(--md-sys-color-primary-container), 0.4);
+    opacity: 1;
 }
 
-.controls {
+/* Bouton Pill "Obtenir l'ebook" dans la navbar */
+.btn-nav-cta {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream) !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: var(--radius-pill);
+    transition: var(--m3-transition);
+}
+
+.btn-nav-cta:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(30, 53, 37, 0.15);
+}
+
+/* Zone boutons Thème & Langues */
+.nav-controls {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-/* Contrôle Langue & Thème */
-.icon-btn {
-    background: var(--md-sys-color-surface-variant);
-    border: none;
+.theme-btn {
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-pill);
     cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    transition: var(--m3-transition);
 }
 
-.icon-btn:hover {
-    filter: brightness(0.95);
-    transform: scale(1.05);
+[data-theme="dark"] .theme-btn {
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
-.lang-toggle {
+.theme-btn:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.lang-picker {
     display: flex;
-    background-color: var(--md-sys-color-surface-variant);
-    padding: 4px;
-    border-radius: var(--radius-full);
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 3px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.lang-toggle button {
+[data-theme="dark"] .lang-picker {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.lang-picker button {
     background: none;
     border: none;
     cursor: pointer;
@@ -156,356 +205,335 @@ body {
     font-weight: 600;
     font-size: 0.75rem;
     padding: 6px 12px;
-    border-radius: var(--radius-full);
-    color: var(--md-sys-color-on-surface-variant);
+    border-radius: var(--radius-pill);
+    color: var(--color-text-muted);
+    transition: var(--m3-transition);
 }
 
-.lang-toggle button.active {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
+.lang-picker button.active {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream);
 }
 
 /* ==========================================================================
-   MAIN MAIN CONTENT LAYOUT
+   HERO SECTION (Reproduction au pixel près de l'Image 2)
    ========================================================================== */
-.main-content {
-    margin-top: 76px; /* Évite la superposition sous la barre fixe */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 24px 80px;
+    position: relative;
+    
+    /* Image forestière en arrière-plan avec voile crème adouci */
+    background-image: linear-gradient(
+        to right, 
+        rgba(245, 242, 234, 0.92) 30%, 
+        rgba(245, 242, 234, 0.75) 100%
+    ), 
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    transition: background-image var(--m3-transition);
 }
 
-section {
+/* Surcharge adaptative pour le fond en mode sombre */
+[data-theme="dark"] .hero {
+    background-image: linear-gradient(
+        to right, 
+        rgba(11, 15, 12, 0.94) 30%, 
+        rgba(11, 15, 12, 0.82) 100%
+    ), 
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1950&q=80');
+}
+
+.hero-container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 80px 24px;
+    width: 100%;
+    text-align: left; /* Alignement strict à gauche comme l'image */
 }
 
-/* En-têtes globales des sections */
-.section-header {
-    margin-bottom: 48px;
-    text-align: center;
-}
-
-.section-header h2 {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: var(--md-sys-color-on-surface);
-}
-
-.section-subtitle {
-    color: var(--md-sys-color-on-surface-variant);
-    margin-top: 8px;
-}
-
-.line-divider {
-    width: 60px;
-    height: 4px;
-    background-color: var(--md-sys-color-primary);
-    margin: 16px auto 0;
-    border-radius: var(--radius-full);
-}
-
-/* ==========================================================================
-   BOUTONS (Norme Google Material 3)
-   ========================================================================== */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-body);
+/* Badge M3 oblong avec bordure fine */
+.hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(30, 53, 37, 0.25);
+    padding: 6px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
     font-weight: 500;
-    font-size: 0.95rem;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: var(--radius-large);
-    cursor: pointer;
-    border: none;
-    gap: 8px;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
 }
 
-.btn-primary {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
+[data-theme="dark"] .hero-badge {
+    border-color: rgba(163, 217, 174, 0.3);
 }
 
-.btn-primary:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    filter: brightness(1.08);
-}
-
-.btn-secondary {
-    background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-primary);
-    border: 1px solid var(--md-sys-color-outline);
-}
-
-.btn-secondary:hover {
-    background-color: rgba(var(--md-sys-color-primary-container), 0.3);
-}
-
-.btn-tonal {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    border: none;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-radius: var(--radius-medium);
-    cursor: pointer;
-    margin-top: auto;
-}
-
-.btn-tonal:hover {
-    filter: brightness(0.95);
-}
-
-.btn-extended-fab {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    padding: 16px 32px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: var(--radius-medium);
-}
-
-.btn-extended-fab:hover {
-    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-    transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   HERO SECTION
-   ========================================================================== */
-.hero-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-.hero-card {
-    background-color: var(--md-sys-color-surface-variant);
-    padding: 60px 40px;
-    border-radius: var(--radius-large);
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.badge {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: var(--radius-full);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.hero-card h1 {
+/* Titre principal massif Serif */
+.hero-title {
     font-family: var(--font-display);
-    font-size: 3.2rem;
-    line-height: 1.2;
-    margin-top: 24px;
-    margin-bottom: 20px;
-    color: var(--md-sys-color-on-surface);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--color-primary-green);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
 }
 
+/* L'accentuation "vie numérique" */
+.italic-accent {
+    font-style: italic;
+    color: var(--color-accent-copper);
+    font-weight: 400;
+}
+
+/* Paragraphe d'introduction */
 .hero-lead {
-    font-size: 1.15rem;
-    color: var(--md-sys-color-on-surface-variant);
-    max-width: 700px;
-    margin: 0 auto 32px;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--color-text-muted);
+    max-width: 620px;
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
+/* Conteneur d'actions */
 .hero-actions {
     display: flex;
-    justify-content: center;
-    gap: 16px;
+    align-items: center;
+    gap: 32px;
     flex-wrap: wrap;
 }
 
-/* ==========================================================================
-   ABOUT / HISTOIRE SECTION
-   ========================================================================== */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
-    align-items: center;
+/* Gros bouton pill primaire */
+.btn-hero-primary {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 16px 36px;
+    border-radius: var(--radius-pill);
+    transition: var(--m3-transition);
 }
 
-.m3-shape-container {
-    background-color: var(--md-sys-color-primary-container);
-    height: 240px;
-    border-radius: 40px 150px 80px 100px; /* Courbure organique fluide M3 */
+.btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 53, 37, 0.2);
+}
+
+/* Lien d'histoire secondaire */
+.btn-hero-secondary {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 4.5rem;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: opacity 0.2s ease;
 }
 
-.about-text p {
+.btn-hero-secondary:hover {
+    opacity: 0.8;
+}
+
+.btn-hero-secondary .chevron {
     font-size: 1.1rem;
-    color: var(--md-sys-color-on-surface-variant);
-    margin-bottom: 16px;
+    color: var(--color-accent-copper);
 }
 
 /* ==========================================================================
-   MODULES CARDS GRID
+   SECTIONS CONTENU GENERAL (Qui suis-je, Histoire, Modules)
    ========================================================================== */
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--color-primary-green);
+    margin-bottom: 24px;
+}
+
+/* Histoire */
+.section-about {
+    background-color: rgba(0, 0, 0, 0.015);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+/* Modules */
+.modules-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+}
+
 .modules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
-    margin-bottom: 64px;
 }
 
+/* Cartes épurées et interactives Material 3 */
 .module-card {
-    background-color: var(--md-sys-color-surface);
-    border: 1px solid rgba(var(--md-sys-color-outline), 0.2);
-    border-radius: var(--radius-medium);
-    padding: 32px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-m3-card);
+    padding: 36px;
     display: flex;
     flex-direction: column;
-    position: relative;
     cursor: pointer;
+    transition: var(--m3-transition);
 }
 
 .module-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--md-sys-color-primary);
-    background-color: rgba(var(--md-sys-color-primary-container), 0.15);
+    transform: translateY(-6px);
+    border-color: var(--color-primary-green);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.04);
 }
 
-.card-icon {
-    font-size: 2.5rem;
+.card-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-copper);
     margin-bottom: 16px;
+    font-weight: 600;
 }
 
-.card-step {
-    position: absolute;
-    top: 24px;
-    right: 32px;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: rgba(var(--md-sys-color-outline), 0.4);
+.card-meta span {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
 }
 
 .module-card h3 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: 500;
     margin-bottom: 12px;
+    color: var(--color-text-dark);
 }
 
 .module-card p {
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--color-text-muted);
     font-size: 0.95rem;
-    margin-bottom: 24px;
+    line-height: 1.5;
+    margin-bottom: 28px;
 }
 
-/* CTA BANNER GUMROAD */
-.cta-banner {
-    background-color: var(--md-sys-color-surface-variant);
-    border-radius: var(--radius-large);
-    padding: 48px 32px;
-    text-align: center;
-    max-width: 800px;
-    margin: 40px auto 0;
-}
-
-.cta-banner h3 {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-}
-
-.cta-banner p {
-    color: var(--md-sys-color-on-surface-variant);
-    margin-bottom: 24px;
+.btn-card-action {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-primary-green);
+    text-align: left;
+    cursor: pointer;
+    margin-top: auto;
+    padding-top: 8px;
 }
 
 /* ==========================================================================
    FOOTER
    ========================================================================== */
 .footer {
-    background-color: var(--md-sys-color-surface);
-    border-top: 1px solid rgba(var(--md-sys-color-outline), 0.15);
-    padding: 32px 24px;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    padding: 40px 0;
+    background-color: var(--color-bg-cream);
 }
 
 .footer-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 20px;
     font-size: 0.9rem;
-    color: var(--md-sys-color-on-surface-variant);
+    color: var(--color-text-muted);
 }
 
-.footer-link {
-    color: var(--md-sys-color-primary);
+.email-link {
+    color: var(--color-primary-green);
     text-decoration: none;
     font-weight: 500;
+    margin-left: 6px;
 }
 
-.footer-link:hover {
+.email-link:hover {
     text-decoration: underline;
 }
 
 /* ==========================================================================
-   MODAL INTERACTIVE DIALOG
+   MODAL WINDOW (Dialogue de surface Material 3)
    ========================================================================== */
-.modal-overlay {
+.modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s var(--motion-short);
-    padding: 16px;
+    transition: opacity 0.3s ease;
+    padding: 20px;
 }
 
-.modal-overlay.active {
+.modal-backdrop.visible {
     opacity: 1;
     pointer-events: auto;
 }
 
-.modal-dialog {
-    background-color: var(--md-sys-color-surface);
-    border-radius: var(--radius-large);
-    max-width: 550px;
+.modal-window {
+    background-color: var(--color-bg-cream);
+    border: 1px solid var(--color-card-border);
+    padding: 40px;
+    border-radius: var(--radius-m3-large);
+    max-width: 600px;
     width: 100%;
-    padding: 32px;
     position: relative;
-    transform: translateY(30px) scale(0.95);
-    transition: transform 0.3s var(--motion-short);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
 }
 
-.modal-overlay.active .modal-dialog {
-    transform: translateY(0) scale(1);
+.modal-backdrop.visible .modal-window {
+    transform: scale(1) translateY(0);
 }
 
-.close-icon-btn {
+.modal-close-icon {
     position: absolute;
     top: 24px;
     right: 24px;
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
-    color: var(--md-sys-color-on-surface-variant);
-    line-height: 1;
+    color: var(--color-text-muted);
+    line-height: 0.5;
 }
 
 .modal-header {
@@ -515,86 +543,102 @@ section {
     margin-bottom: 24px;
 }
 
-.modal-badge-step {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    padding: 4px 12px;
+.modal-badge-number {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream);
     font-weight: 600;
-    border-radius: var(--radius-full);
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    border-radius: var(--radius-pill);
 }
 
 #modalTitle {
     font-family: var(--font-display);
     font-size: 1.8rem;
-    color: var(--md-sys-color-on-surface);
+    color: var(--color-primary-green);
 }
 
-.m3-list {
+.modal-bullets {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 32px;
 }
 
-.m3-list-item {
-    background-color: var(--md-sys-color-surface-variant);
-    padding: 16px;
-    border-radius: var(--radius-medium);
-    font-size: 0.95rem;
-    color: var(--md-sys-color-on-surface-variant);
+.modal-bullets li {
+    font-size: 1rem;
+    color: var(--color-text-muted);
     position: relative;
-    border-left: 4px solid var(--md-sys-color-primary);
+    padding-left: 24px;
+    line-height: 1.5;
 }
 
-.modal-actions {
+.modal-bullets li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-copper);
+    font-weight: bold;
+}
+
+.modal-footer {
     display: flex;
     justify-content: flex-end;
 }
 
-.btn-text {
-    background: none;
-    border: none;
-    color: var(--md-sys-color-primary);
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: var(--radius-full);
+.btn-modal-close {
+    background-color: var(--color-card-bg);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-card-border);
+    padding: 12px 28px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    border-radius: var(--radius-pill);
     cursor: pointer;
+    transition: var(--m3-transition);
 }
 
-.btn-text:hover {
-    background-color: rgba(var(--md-sys-color-primary), 0.08);
+.btn-modal-close:hover {
+    background-color: var(--color-primary-green);
+    color: var(--color-bg-cream);
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Optimisé Smartphone / Tablette)
+   RESPONSIVE DESIGN (Parfaitement calibré sur Mobile)
    ========================================================================== */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Cache les raccourcis sur mobile pour prioriser l'UI épurée */
+@media (max-width: 850px) {
+    .nav-center {
+        display: none; /* Simplification M3 pour mobile : se concentre sur les boutons d'action */
     }
-
-    .hero-card {
-        padding: 40px 20px;
+    
+    .hero {
+        padding-top: 110px;
+        background-image: linear-gradient(
+            to bottom, 
+            rgba(245, 242, 234, 0.95) 40%, 
+            rgba(245, 242, 234, 0.85) 100%
+        ), 
+        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1950&q=80');
     }
-
-    .hero-card h1 {
-        font-size: 2.2rem;
+    
+    .hero-title {
+        font-size: 2.3rem;
     }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+    
+    .hero-actions {
+        gap: 20px;
     }
-
-    .m3-shape-container {
-        height: 180px;
+    
+    .btn-hero-primary {
+        width: 100%;
+        text-align: center;
     }
-
-    .section-header h2 {
-        font-size: 2rem;
+    
+    section {
+        padding: 60px 0;
     }
-
+    
     .footer-container {
         flex-direction: column;
         text-align: center;

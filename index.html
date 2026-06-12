@@ -592,7 +592,7 @@ const html = document.documentElement;
 
 // Initialiser le thème au chargement
 function initTheme() {
-  const savedTheme = localStorage.getItem('pdl-theme') || 'light';
+  const savedTheme = localStorage.getItem('pdl-theme') || 'dark';
   html.setAttribute('data-theme', savedTheme);
   updateThemeIcon(savedTheme);
 }

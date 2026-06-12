@@ -3,317 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocole Détox & Liberté — Ebook</title>
-    <meta name="description" content="Reprenez le contrôle : alimentation naturelle, souveraineté numérique et hygiène de vie ancestrale.">
+    <title>Protocole Détox & Liberté</title>
+    <meta name="description" content="Reprenez le contrôle de votre assiette, de votre corps et de votre vie numérique.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="lang-fr">
 
-    <nav class="top-app-bar">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="brand-title">Détox & Liberté</a>
+            <a href="#home" class="nav-logo">
+                Détox<span class="logo-accent">&Liberté</span>
+            </a>
             
-            <div class="nav-links">
-                <a href="#about" data-fr="Qui suis-je" data-en="About me">Qui suis-je</a>
-                <a href="#modules" data-fr="Les Modules" data-en="Modules">Les Modules</a>
+            <div class="nav-center">
+                <div class="nav-links">
+                    <a href="#about" class="lang-fr">Accueil</a>
+                    <a href="#about" class="lang-en">Home</a>
+                    
+                    <a href="#about" class="lang-fr">Mon histoire</a>
+                    <a href="#about" class="lang-en">My story</a>
+                    
+                    <a href="#contact" class="lang-fr">Contact</a>
+                    <a href="#contact" class="lang-en">Contact</a>
+                </div>
+                <a href="#" target="_blank" class="btn-nav-cta">
+                    <span class="lang-fr">Obtenir l'ebook →</span>
+                    <span class="lang-en">Get the ebook →</span>
+                </a>
             </div>
 
-            <div class="controls">
-                <button id="themeToggle" class="icon-btn" aria-label="Changer de thème">
-                    <span class="mode-icon">🌙</span>
+            <div class="nav-controls">
+                <button id="themeToggle" class="theme-btn" aria-label="Changer de thème">
+                    <span class="icon-theme">🌙</span>
                 </button>
 
-                <div class="lang-toggle">
-                    <button data-lang="fr" class="active">FR</button>
-                    <button data-lang="en">EN</button>
+                <div class="lang-picker">
+                    <button data-btn-lang="fr" class="active">FR</button>
+                    <button data-btn-lang="en">EN</button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main class="main-content">
-        
-        <section id="home" class="hero-section">
-            <div class="hero-card">
-                <span class="badge" data-fr="Ebook Complet" data-en="Complete Ebook">Ebook Complet</span>
-                <h1 data-fr="Reprenez votre pleine souveraineté." data-en="Reclaim your absolute sovereignty.">
-                    Reprenez votre pleine souveraineté.
-                </h1>
-                <p class="hero-lead" data-fr="Un protocole holistique en 3 piliers pour nettoyer votre corps, optimiser votre environnement et libérer votre esprit des dépendances modernes." data-en="A holistic 3-pillar protocol to cleanse your body, optimize your environment, and free your mind from modern dependencies.">
-                    Un protocole holistique en 3 piliers pour nettoyer votre corps, optimiser votre environnement et libérer votre esprit des dépendances modernes.
-                </p>
-                <div class="hero-actions">
-                    <a href="#modules" class="btn btn-primary" data-fr="Découvrir les 3 Modules" data-en="Discover the 3 Modules">Découvrir les 3 Modules</a>
-                    <a href="#about" class="btn btn-secondary" data-fr="Lire mon histoire" data-en="Read my story">Lire mon histoire</a>
-                </div>
+    <header id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="lang-fr">EBOOK · 3 MODULES · TÉLÉCHARGEMENT IMMÉDIAT</span>
+                <span class="lang-en">EBOOK · 3 MODULES · INSTANT DOWNLOAD</span>
             </div>
-        </section>
+            
+            <h1 class="hero-title lang-fr">
+                Reprendre le contrôle.<br>
+                De votre assiette,<br>
+                de votre corps,<br>
+                de votre <span class="italic-accent">vie numérique</span>.
+            </h1>
+            <h1 class="hero-title lang-en">
+                Reclaim control.<br>
+                Of your plate,<br>
+                of your body,<br>
+                of your <span class="italic-accent">digital life</span>.
+            </h1>
+            
+            <p class="hero-lead lang-fr">
+                Un protocole concret, sans dogme et sans jargon. Trois domaines, trois modules, des applications que vous pouvez commencer dès aujourd'hui.
+            </p>
+            <p class="hero-lead lang-en">
+                A concrete protocol, without dogma or jargon. Three domains, three modules, applications you can start implementing today.
+            </p>
+            
+            <div class="hero-actions">
+                <a href="#" target="_blank" class="btn-hero-primary">
+                    <span class="lang-fr">Obtenir l'ebook →</span>
+                    <span class="lang-en">Get the ebook →</span>
+                </a>
+                
+                <a href="#about" class="btn-hero-secondary">
+                    <span class="chevron">↓</span>
+                    <span class="lang-fr">Découvrir mon histoire</span>
+                    <span class="lang-en">Discover my story</span>
+                </a>
+            </div>
+        </div>
+    </header>
 
-        <section id="about" class="about-section">
-            <div class="section-header">
-                <h2 data-fr="Qui suis-je ?" data-en="Who am I?">Qui suis-je ?</h2>
-                <div class="line-divider"></div>
+    <section id="about" class="section-about">
+        <div class="container-narrow">
+            <h2 class="section-title lang-fr">Mon histoire</h2>
+            <h2 class="section-title lang-en">My Story</h2>
+            
+            <div class="about-content">
+                <p class="lang-fr">Passionné par le retour à une vie authentique, j'ai passé des années à analyser l'impact de notre alimentation industrielle, de nos vêtements synthétiques et de notre hyper-connexion technologique.</p>
+                <p class="lang-en">Passionate about returning to an authentic life, I spent years analyzing the impact of our industrial diet, synthetic clothing, and technological hyper-connection.</p>
+                
+                <p class="lang-fr">Ce guide est la synthèse exacte des changements radicaux qui m'ont permis de retrouver une énergie débordante, une clarté mentale absolue et une indépendance numérique complète.</p>
+                <p class="lang-en">This guide is the exact synthesis of the radical changes that allowed me to recover boundless energy, absolute mental clarity, and complete digital independence.</p>
             </div>
-            <div class="about-grid">
-                <div class="about-illustration">
-                    <div class="m3-shape-container">🌱</div>
-                </div>
-                <div class="about-text">
-                    <p data-fr="Passionné par le retour à une vie authentique, j'ai passé des années à analyser l'impact de notre alimentation industrielle, de nos vêtements synthétiques et de notre hyper-connexion technologique." data-en="Passionate about returning to an authentic life, I spent years analyzing the impact of our industrial diet, synthetic clothing, and technological hyper-connection.">
-                        Passionné par le retour à une vie authentique, j'ai passé des années à analyser l'impact de notre alimentation industrielle, de nos vêtements synthétiques et de notre hyper-connexion technologique.
-                    </p>
-                    <p data-fr="Ce guide est la synthèse exacte des changements radicaux qui m'ont permis de retrouver une énergie débordante, une clarté mentale absolue et une indépendance numérique complète." data-en="This guide is the exact synthesis of the radical changes that allowed me to recover boundless energy, absolute mental clarity, and complete digital independence.">
-                        Ce guide est la synthèse exacte des changements radicaux qui m'ont permis de retrouver une énergie débordante, une clarté mentale absolue et une indépendance numérique complète.
-                    </p>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="modules" class="modules-section">
-            <div class="section-header">
-                <h2 data-fr="Le Programme en 3 Étaples" data-en="The 3-Step Program">Le Programme en 3 Étapes</h2>
-                <p class="section-subtitle" data-fr="Cliquez sur chaque module pour explorer les détails du protocole." data-en="Click on each module to explore the details of the protocol.">Cliquez sur chaque module pour explorer les détails du protocole.</p>
+    <section id="modules" class="section-modules">
+        <div class="container">
+            <div class="modules-header">
+                <h2 class="section-title lang-fr">Le Programme détaillé</h2>
+                <h2 class="section-title lang-en">The Detailed Program</h2>
+                <p class="section-subtitle lang-fr">Cliquez sur un module pour afficher les détails du protocole.</p>
+                <p class="section-subtitle lang-en">Click on a module to view the details of the protocol.</p>
             </div>
 
             <div class="modules-grid">
                 <div class="module-card" data-module="1">
-                    <div class="card-icon">🍎</div>
-                    <span class="card-step">01</span>
-                    <h3 data-fr="Alimentation Vivante" data-en="Living Nutrition">Alimentation Vivante</h3>
-                    <p data-fr="Retour aux bases ancestrales et vitales : anatomie du profil animal-based, miel sauvage et fruits de saison." data-en="Return to ancestral and vital foundations: animal-based profile, wild honey, and seasonal fruits.">Retour aux bases ancestrales et vitales : anatomie du profil animal-based, miel sauvage et fruits de saison.</p>
-                    <button class="btn-tonal" data-fr="Explorer le module" data-en="Explore module">Explorer le module</button>
+                    <div class="card-meta"><span>01</span> · Module</div>
+                    <h3 class="lang-fr">Alimentation Vivante</h3>
+                    <h3 class="lang-en">Living Nutrition</h3>
+                    <p class="lang-fr">Anatomie du profil animal-based, fruits de saison et miel sauvage. Nettoyer son métabolisme.</p>
+                    <p class="lang-en">Anatomy of the animal-based profile, seasonal fruits, and wild honey. Cleanse your metabolism.</p>
+                    <button class="btn-card-action lang-fr">Voir les détails →</button>
+                    <button class="btn-card-action lang-en">View details →</button>
                 </div>
 
                 <div class="module-card" data-module="2">
-                    <div class="card-icon">🦶</div>
-                    <span class="card-step">02</span>
-                    <h3 data-fr="Hygiène Pure" data-en="Pure Lifestyle">Hygiène Pure</h3>
-                    <p data-fr="Libérez votre biologie : reconnexion à la terre (earthing), textiles naturels non toxiques et reset des addictions." data-en="Free your biology: connection to the earth (earthing), non-toxic natural textiles, and addiction reset.">Libérez votre biologie : reconnexion à la terre (earthing), textiles naturels non toxiques et reset des addictions.</p>
-                    <button class="btn-tonal" data-fr="Explorer le module" data-en="Explore module">Explorer le module</button>
+                    <div class="card-meta"><span>02</span> · Module</div>
+                    <h3 class="lang-fr">Hygiène de Vie</h3>
+                    <h3 class="lang-en">Pure Lifestyle</h3>
+                    <p class="lang-fr">Reconnexion à la terre (earthing), vêtements naturels non toxiques et reset des addictions.</p>
+                    <p class="lang-en">Earthing, non-toxic natural clothing, and behavioral addiction reset.</p>
+                    <button class="btn-card-action lang-fr">Voir les détails →</button>
+                    <button class="btn-card-action lang-en">View details →</button>
                 </div>
 
                 <div class="module-card" data-module="3">
-                    <div class="card-icon">🔒</div>
-                    <span class="card-step">03</span>
-                    <h3 data-fr="Technologie & Souveraineté" data-en="Tech & Sovereignty">Technologie & Souveraineté</h3>
-                    <p data-fr="Sortez de la surveillance globale. Maîtrisez GrapheneOS, l'anonymat numérique et l'alternative anti-GAFAM." data-en="Exit global surveillance. Master GrapheneOS, digital anonymity, and anti-GAFAM alternatives.">Sortez de la surveillance globale. Maîtrisez GrapheneOS, l'anonymat numérique et l'alternative anti-GAFAM.</p>
-                    <button class="btn-tonal" data-fr="Explorer le module" data-en="Explore module">Explorer le module</button>
+                    <div class="card-meta"><span>03</span> · Module</div>
+                    <h3 class="lang-fr">Technologie & Liberté</h3>
+                    <h3 class="lang-en">Tech & Freedom</h3>
+                    <p class="lang-fr">Souveraineté numérique complète. Maîtrisez GrapheneOS, l'anonymat et l'alternative anti-GAFAM.</p>
+                    <p class="lang-en">Complete digital sovereignty. Master GrapheneOS, anonymity, and anti-GAFAM alternatives.</p>
+                    <button class="btn-card-action lang-fr">Voir les détails →</button>
+                    <button class="btn-card-action lang-en">View details →</button>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="cta-banner">
-                <h3 data-fr="Prêt à entamer votre métamorphose ?" data-en="Ready to start your metamorphosis?">Prêt à entamer votre métamorphose ?</h3>
-                <p data-fr="Accédez instantanément au guide pratique et rejoignez la communauté des esprits libres." data-en="Get instant access to the practical guide and join the community of free minds.">Accédez instantanément au guide pratique et rejoignez la communauté des esprits libres.</p>
-                <a href="#" target="_blank" class="btn btn-extended-fab">
-                    <span class="fab-icon">🛒</span>
-                    <span data-fr="Télécharger le Protocole sur Gumroad" data-en="Download the Protocol on Gumroad">Télécharger le Protocole sur Gumroad</span>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
+    <footer id="contact" class="footer">
         <div class="footer-container">
-            <p>&copy; 2026 Protocole Détox & Liberté.</p>
+            <p class="footer-copy">&copy; 2026 Protocole Détox & Liberté.</p>
             <div class="footer-contact">
-                <span data-fr="Des questions ?" data-en="Questions?">Des questions ?</span> 
-                <a href="mailto:contact@votredomaine.com" class="footer-link">contact@votredomaine.com</a>
+                <span class="lang-fr">Des questions ?</span>
+                <span class="lang-en">Any questions?</span>
+                <a href="mailto:contact@votredomaine.com" class="email-link">contact@votredomaine.com</a>
             </div>
         </div>
     </footer>
 
-    <div id="moduleModal" class="modal-overlay" aria-hidden="true">
-        <div class="modal-dialog">
-            <button id="closeModal" class="close-icon-btn" aria-label="Fermer">&times;</button>
+    <div id="moduleModal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-window">
+            <button id="closeModalIcon" class="modal-close-icon">&times;</button>
             <div class="modal-header">
-                <span id="modalStep" class="modal-badge-step">01</span>
+                <span id="modalBadge" class="modal-badge-number">01</span>
                 <h3 id="modalTitle">Titre du Module</h3>
             </div>
             <div class="modal-body">
-                <ul id="modalList" class="m3-list">
+                <ul id="modalList" class="modal-bullets">
                     </ul>
             </div>
-            <div class="modal-actions">
-                <button id="modalCloseBtn" class="btn btn-text" data-fr="Fermer" data-en="Close">Fermer</button>
+            <div class="modal-footer">
+                <button id="modalCloseBtn" class="btn-modal-close lang-fr">Fermer</button>
+                <button id="modalCloseBtnEn" class="btn-modal-close lang-en">Close</button>
             </div>
         </div>
     </div>
 
     <script>
         /* ==========================================================================
-           THEME SWITCHER (DARK / LIGHT)
+           1. LOGIQUE DU SWITCH DARK / LIGHT MODE
            ========================================================================== */
         const themeToggle = document.getElementById('themeToggle');
-        const modeIcon = themeToggle.querySelector('.mode-icon');
+        const themeIcon = themeToggle.querySelector('.icon-theme');
         
-        function setTheme(theme) {
+        function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            modeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
 
         themeToggle.onclick = () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+            applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
         };
 
-        // Restauration du thème sauvegardé ou préférence système
+        // Restauration initiale (ou préférence système globale)
         const savedTheme = localStorage.getItem('theme') || 
             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        setTheme(savedTheme);
+        applyTheme(savedTheme);
 
 
         /* ==========================================================================
-           LANGUAGE SWITCHER (FR / EN)
+           2. LOGIQUE DU SWITCH DE LANGUE (FR / EN) via Classes du Body
            ========================================================================== */
-        const langButtons = document.querySelectorAll('[data-lang]');
+        const langButtons = document.querySelectorAll('[data-btn-lang]');
         
-        function setLanguage(lang) {
-            langButtons.forEach(b => b.classList.remove('active'));
-            const activeBtn = document.querySelector(`[data-lang="${lang}"]`);
-            if (activeBtn) activeBtn.classList.add('active');
-
-            // Traduction des textes possédant les attributs data-fr / data-en
-            document.querySelectorAll('[data-fr]').forEach(el => {
-                el.textContent = el.dataset[lang];
-            });
-
+        function applyLanguage(lang) {
+            document.body.className = `lang-${lang}`;
             localStorage.setItem('lang', lang);
+            
+            // Mise à jour visuelle des boutons de langue
+            langButtons.forEach(btn => {
+                if(btn.dataset.btnLang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
         }
 
         langButtons.forEach(btn => {
             btn.onclick = () => {
-                setLanguage(btn.dataset.lang);
+                applyLanguage(btn.dataset.btnLang);
             };
         });
 
-        // Restauration de la langue
+        // Restauration initiale de la langue
         const savedLang = localStorage.getItem('lang') || 'fr';
-        setLanguage(savedLang);
+        applyLanguage(savedLang);
 
 
         /* ==========================================================================
-           MODAL DIALOG DATA & LOGIC FOR MODULES
+           3. BASE DE DONNÉES LOCALE & GESTIONNAIRE DE MODALE POUR LES 3 MODULES
            ========================================================================== */
-        const moduleData = {
+        const dataModules = {
             1: {
                 fr: {
                     title: "Alimentation Vivante",
-                    items: [
-                        "Le profil Animal-Based complet : comprendre les bienfaits des viandes de qualité et des abats.",
-                        "L'importance des glucides propres : sélection de fruits biologiques mûrs et élimination des anti-nutriments.",
-                        "Le rôle du miel sauvage brut comme source d'énergie immédiate et thérapeutique."
+                    points: [
+                        "Le profil complet de l'alimentation basée sur les produits animaux (Animal-Based).",
+                        "Sélection et rôles des glucides propres : fruits mûrs de saison, élimination complète des anti-nutriments.",
+                        "Le miel sauvage brut comme carburant métabolique et régulateur enzymatique ancestral."
                     ]
                 },
                 en: {
                     title: "Living Nutrition",
-                    items: [
-                        "The complete Animal-Based profile: understanding the benefits of quality meats and organ meats.",
-                        "The importance of clean carbohydrates: selecting ripe organic fruits and eliminating anti-nutrients.",
-                        "The role of raw wild honey as an immediate and therapeutic energy source."
+                    points: [
+                        "The complete structure of the high-quality Animal-Based lifestyle.",
+                        "Selecting clean carbohydrates: organic seasonal fruits, total elimination of seed oils and anti-nutrients.",
+                        "Raw wild honey as a metabolic bio-fuel and ancestral health booster."
                     ]
                 }
             },
             2: {
                 fr: {
-                    title: "Hygiène Pure & Ancestrale",
-                    items: [
-                        "Earthing (Ancrage) : marcher pieds nus pour réguler la charge électrique du corps.",
-                        "L'impact des textiles : pourquoi bannir le polyester au profit du coton bio, du lin et de la laine.",
-                        "Reset de la dopamine : protocole de sevrage des addictions comportementales et des stimulants artificiels."
+                    title: "Hygiène de Vie Vitale",
+                    points: [
+                        "Earthing / Grounding : se reconnecter électriquement à la terre pour réduire l'inflammation.",
+                        "Bannir les perturbateurs : élimination des textiles synthétiques au profit du lin, du coton bio et de la laine.",
+                        "Reset de la dopamine : protocole de sevrage des addictions technologiques et des stimulants de synthèse."
                     ]
                 },
                 en: {
-                    title: "Pure & Ancestral Lifestyle",
-                    items: [
-                        "Earthing (Grounding): walking barefoot to balance the body's electrical charge.",
-                        "The impact of textiles: why banish polyester in favor of organic cotton, linen, and wool.",
-                        "Dopamine Reset: a protocol for breaking behavioral addictions and artificial stimulants."
+                    title: "Pure Lifestyle",
+                    points: [
+                        "Earthing / Grounding: walking barefoot to discharge positive stress ions and lower inflammation.",
+                        "Textile detox: eliminating plastics/polyester in favor of high-frequency linen, organic cotton, and wool.",
+                        "Dopamine reset: practical protocols to purge modern cognitive hyper-stimulations."
                     ]
                 }
             },
             3: {
                 fr: {
-                    title: "Technologie & Souveraineté",
-                    items: [
-                        "GrapheneOS : installation pas-à-pas du système d'exploitation mobile ultra-sécurisé.",
-                        "Stratégies d'anonymisation au quotidien : chiffrement, métadonnées et réseaux isolés.",
-                        "Alternative Anti-GAFAM : remplacer tous vos services cloud et applicatifs par du libre et du souverain."
+                    title: "Technologie & Liberté",
+                    points: [
+                        "GrapheneOS : guide d'installation et configuration pas-à-pas de votre système souverain.",
+                        "OpSec au quotidien : techniques d'anonymisation de vos communications, VPN sans logs et métadonnées.",
+                        "Alternative anti-GAFAM : migration complète vers des services cloud cryptés de bout en bout et open source."
                     ]
                 },
                 en: {
-                    title: "Tech & Sovereignty",
-                    items: [
-                        "GrapheneOS: step-by-step installation of the ultra-secure mobile operating system.",
-                        "Daily anonymization strategies: encryption, metadata reduction, and isolated networks.",
-                        "Anti-GAFAM Alternative: replacing all cloud and application services with open-source equivalents."
+                    title: "Tech & Freedom",
+                    points: [
+                        "GrapheneOS: comprehensive step-by-step installation for a highly secure smartphone framework.",
+                        "Daily OpSec: practical metadata scrubbing, secure key management, and data compartmentalization.",
+                        "Anti-GAFAM architecture: complete self-hosted or zero-knowledge cloud ecosystems replacements."
                     ]
                 }
             }
         };
 
-        const modalOverlay = document.getElementById('moduleModal');
-        const closeModal = document.getElementById('closeModal');
-        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        const modalBackdrop = document.getElementById('moduleModal');
         const modalTitle = document.getElementById('modalTitle');
-        const modalStep = document.getElementById('modalStep');
+        const modalBadge = document.getElementById('modalBadge');
         const modalList = document.getElementById('modalList');
-
-        function openModule(moduleId) {
-            const currentLang = localStorage.getItem('lang') || 'fr';
-            const data = moduleData[moduleId][currentLang];
+        
+        function openModal(id) {
+            const currentLang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+            const moduleInfo = dataModules[id][currentLang];
             
-            modalStep.textContent = `0${moduleId}`;
-            modalTitle.textContent = data.title;
+            modalBadge.textContent = `0${id}`;
+            modalTitle.textContent = moduleInfo.title;
             
-            // Nettoyage et injection de la liste
+            // Vidage et injection sécurisée des listes
             modalList.innerHTML = '';
-            data.items.forEach(item => {
+            moduleInfo.points.forEach(text => {
                 const li = document.createElement('li');
-                li.className = 'm3-list-item';
-                li.textContent = item;
+                li.textContent = text;
                 modalList.appendChild(li);
             });
-
-            modalOverlay.classList.add('active');
-            modalOverlay.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Bloque le scroll arrière
+            
+            modalBackdrop.classList.add('visible');
+            modalBackdrop.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; // Bloque le défilement de fond
         }
 
-        function closeModule() {
-            modalOverlay.classList.remove('active');
-            modalOverlay.setAttribute('aria-hidden', 'true');
+        function closeModal() {
+            modalBackdrop.classList.remove('visible');
+            modalBackdrop.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }
 
-        // Événements d'ouverture sur les cartes
+        // Ecouteurs sur les cartes de modules
         document.querySelectorAll('.module-card').forEach(card => {
-            const btn = card.querySelector('.btn-tonal');
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                openModule(card.dataset.module);
-            });
-            card.addEventListener('click', () => {
-                openModule(card.dataset.module);
-            });
+            card.onclick = () => openModal(card.dataset.module);
         });
 
-        // Événements de fermeture
-        closeModal.onclick = closeModule;
-        modalCloseBtn.onclick = closeModule;
-        modalOverlay.onclick = (e) => {
-            if (e.target === modalOverlay) closeModule();
+        // Ecouteurs de fermeture
+        document.getElementById('closeModalIcon').onclick = closeModal;
+        document.getElementById('modalCloseBtn').onclick = closeModal;
+        document.getElementById('modalCloseBtnEn').onclick = closeModal;
+        
+        modalBackdrop.onclick = (e) => {
+            if (e.target === modalBackdrop) closeModal();
         };
 
-        // Fermeture via touche Échap
+        // Fermeture via touche clavier Échap
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-                closeModule();
+            if (e.key === 'Escape' && modalBackdrop.classList.contains('visible')) {
+                closeModal();
             }
         });
     </script>

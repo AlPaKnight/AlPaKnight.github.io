@@ -1,0 +1,602 @@
+/* ==========================================================================
+   VARIABLES & DESIGN TOKENS (Inspiré de Material 3)
+   ========================================================================== */
+:root {
+    /* Mode Clair - Palette Terreuse / Forêt M3 */
+    --md-sys-color-primary: #2C5234;       /* Vert Forêt profond signature */
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #D2E8D4;
+    --md-sys-color-on-primary-container: #00210A;
+    --md-sys-color-surface: #FCFAF6;       /* Blanc cassé / Crème chaleureux */
+    --md-sys-color-on-surface: #1A1C19;
+    --md-sys-color-surface-variant: #F0EDE6; 
+    --md-sys-color-on-surface-variant: #434842;
+    --md-sys-color-outline: #737971;
+    --md-sys-color-background: #F6F4EE;
+
+    /* Typographies standardisées */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Rayons de courbure de type Material 3 */
+    --radius-small: 8px;
+    --radius-medium: 16px;
+    --radius-large: 28px; /* Pour les structures de type Pill / FAB */
+    --radius-full: 9999px;
+
+    /* Transitions fluides globales */
+    --motion-short: cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-theme="dark"] {
+    /* Mode Sombre - Palette Forêt Nocturne M3 */
+    --md-sys-color-primary: #97D5A0;       /* Vert pastel lumineux en sombre */
+    --md-sys-color-on-primary: #003917;
+    --md-sys-color-primary-container: #134B29;
+    --md-sys-color-on-primary-container: #B3F2BC;
+    --md-sys-color-surface: #111411;       /* Fond sombre organique noir-vert */
+    --md-sys-color-on-surface: #E2E3DD;
+    --md-sys-color-surface-variant: #222622;
+    --md-sys-color-on-surface-variant: #C3C8C0;
+    --md-sys-color-outline: #8D938B;
+    --md-sys-color-background: #0B0E0B;
+}
+
+/* ==========================================================================
+   RESET & STRUCTURE GENERALE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.4s var(--motion-short), color 0.3s var(--motion-short), border-color 0.3s var(--motion-short);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-surface);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   NAVIGATION (Top App Bar Style)
+   ========================================================================== */
+.top-app-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(var(--md-sys-color-surface), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(var(--md-sys-color-outline), 0.15);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border-radius: var(--radius-small);
+}
+
+.nav-links a:hover {
+    color: var(--md-sys-color-primary);
+    background-color: rgba(var(--md-sys-color-primary-container), 0.4);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Contrôle Langue & Thème */
+.icon-btn {
+    background: var(--md-sys-color-surface-variant);
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.icon-btn:hover {
+    filter: brightness(0.95);
+    transform: scale(1.05);
+}
+
+.lang-toggle {
+    display: flex;
+    background-color: var(--md-sys-color-surface-variant);
+    padding: 4px;
+    border-radius: var(--radius-full);
+}
+
+.lang-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.lang-toggle button.active {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+/* ==========================================================================
+   MAIN MAIN CONTENT LAYOUT
+   ========================================================================== */
+.main-content {
+    margin-top: 76px; /* Évite la superposition sous la barre fixe */
+}
+
+section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+/* En-têtes globales des sections */
+.section-header {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--md-sys-color-on-surface);
+}
+
+.section-subtitle {
+    color: var(--md-sys-color-on-surface-variant);
+    margin-top: 8px;
+}
+
+.line-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--md-sys-color-primary);
+    margin: 16px auto 0;
+    border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   BOUTONS (Norme Google Material 3)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: var(--radius-large);
+    cursor: pointer;
+    border: none;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    filter: brightness(1.08);
+}
+
+.btn-secondary {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-primary);
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(var(--md-sys-color-primary-container), 0.3);
+}
+
+.btn-tonal {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.btn-tonal:hover {
+    filter: brightness(0.95);
+}
+
+.btn-extended-fab {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    padding: 16px 32px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: var(--radius-medium);
+}
+
+.btn-extended-fab:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.hero-card {
+    background-color: var(--md-sys-color-surface-variant);
+    padding: 60px 40px;
+    border-radius: var(--radius-large);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.badge {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-card h1 {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    line-height: 1.2;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    color: var(--md-sys-color-on-surface);
+}
+
+.hero-lead {
+    font-size: 1.15rem;
+    color: var(--md-sys-color-on-surface-variant);
+    max-width: 700px;
+    margin: 0 auto 32px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   ABOUT / HISTOIRE SECTION
+   ========================================================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.m3-shape-container {
+    background-color: var(--md-sys-color-primary-container);
+    height: 240px;
+    border-radius: 40px 150px 80px 100px; /* Courbure organique fluide M3 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   MODULES CARDS GRID
+   ========================================================================== */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.module-card {
+    background-color: var(--md-sys-color-surface);
+    border: 1px solid rgba(var(--md-sys-color-outline), 0.2);
+    border-radius: var(--radius-medium);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--md-sys-color-primary);
+    background-color: rgba(var(--md-sys-color-primary-container), 0.15);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.card-step {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: rgba(var(--md-sys-color-outline), 0.4);
+}
+
+.module-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.module-card p {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+/* CTA BANNER GUMROAD */
+.cta-banner {
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: var(--radius-large);
+    padding: 48px 32px;
+    text-align: center;
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.cta-banner h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.cta-banner p {
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    background-color: var(--md-sys-color-surface);
+    border-top: 1px solid rgba(var(--md-sys-color-outline), 0.15);
+    padding: 32px 24px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.9rem;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.footer-link {
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   MODAL INTERACTIVE DIALOG
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--motion-short);
+    padding: 16px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-dialog {
+    background-color: var(--md-sys-color-surface);
+    border-radius: var(--radius-large);
+    max-width: 550px;
+    width: 100%;
+    padding: 32px;
+    position: relative;
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.3s var(--motion-short);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+}
+
+.modal-overlay.active .modal-dialog {
+    transform: translateY(0) scale(1);
+}
+
+.close-icon-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.modal-badge-step {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    padding: 4px 12px;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+#modalTitle {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--md-sys-color-on-surface);
+}
+
+.m3-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.m3-list-item {
+    background-color: var(--md-sys-color-surface-variant);
+    padding: 16px;
+    border-radius: var(--radius-medium);
+    font-size: 0.95rem;
+    color: var(--md-sys-color-on-surface-variant);
+    position: relative;
+    border-left: 4px solid var(--md-sys-color-primary);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--md-sys-color-primary);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+}
+
+.btn-text:hover {
+    background-color: rgba(var(--md-sys-color-primary), 0.08);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Optimisé Smartphone / Tablette)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Cache les raccourcis sur mobile pour prioriser l'UI épurée */
+    }
+
+    .hero-card {
+        padding: 40px 20px;
+    }
+
+    .hero-card h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .m3-shape-container {
+        height: 180px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

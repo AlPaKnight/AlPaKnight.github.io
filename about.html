@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Découvrez mon parcours — de l'épuisement moderne à la liberté naturelle." />
+  <title>Mon histoire — Protocole Détox & Liberté</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('pdl-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <header>
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav__inner">
+
+        <a href="index.html" class="nav__logo">Détox<span>&</span>Liberté</a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+          <li><a href="about.html" class="active" data-fr="Mon histoire" data-en="My story">Mon histoire</a></li>
+          <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+          <li><a href="https://gumroad.com" class="nav__cta" target="_blank" rel="noopener"
+                 data-fr="Obtenir l'ebook →" data-en="Get the ebook →">Obtenir l'ebook →</a></li>
+        </ul>
+
+        <div class="nav__controls">
+          <!-- Theme toggle -->
+          <button class="theme-toggle" id="theme-toggle"
+                  aria-label="Passer en mode sombre"
+                  data-fr-label="Passer en mode sombre" data-en-label="Switch to dark mode">
+            <!-- Soleil (affiché en light mode → clic = passer en dark) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <!-- Lune (affiché en dark mode → clic = passer en light) -->
+            <svg class="icon-sun" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+
+          <!-- Lang switcher -->
+          <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue / Language">
+            <button data-lang="fr" class="active">FR</button>
+            <button data-lang="en">EN</button>
+          </div>
+
+          <!-- Burger -->
+          <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="about-hero">
+      <div class="about-hero__inner">
+        <div class="about-hero__text">
+          <p class="about-hero__eyebrow" data-fr="Mon histoire" data-en="My story">Mon histoire</p>
+          <h1 class="about-hero__title">
+            <span data-fr="J'ai tout quitté<br>pour retrouver<br><em>l'essentiel</em>"
+                  data-en="I left everything<br>to rediscover<br><em>what matters</em>">
+              J'ai tout quitté<br>pour retrouver<br><em>l'essentiel</em>
+            </span>
+          </h1>
+          <p class="about-hero__intro"
+             data-fr="Pas un guru. Pas un influenceur. Juste quelqu'un qui s'est retrouvé à bout — et qui a choisi de reconstruire, pierre par pierre, une vie qui lui ressemble."
+             data-en="Not a guru. Not an influencer. Just someone who hit a wall — and chose to rebuild, piece by piece, a life that actually fits.">
+            Pas un guru. Pas un influenceur. Juste quelqu'un qui s'est retrouvé à bout — et qui a choisi de reconstruire, pierre par pierre, une vie qui lui ressemble.
+          </p>
+          <div class="about-hero__badges">
+            <span class="badge" data-fr="Alimentation animale" data-en="Animal-based diet">Alimentation animale</span>
+            <span class="badge" data-fr="Hygiène naturelle" data-en="Natural hygiene">Hygiène naturelle</span>
+            <span class="badge badge--terre" data-fr="Souveraineté numérique" data-en="Digital sovereignty">Souveraineté numérique</span>
+            <span class="badge badge--terre" data-fr="Liberté consciente" data-en="Conscious freedom">Liberté consciente</span>
+          </div>
+        </div>
+        <div class="about-hero__portrait-wrap">
+          <div class="about-hero__portrait-bg" aria-hidden="true"></div>
+          <img class="about-hero__portrait"
+               src="https://images.unsplash.com/photo-1542393545-10f5b85e14fc?w=680&q=80&fit=crop"
+               alt="Portrait — lumière naturelle en forêt" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C200,48 400,0 600,24 C800,48 1000,0 1200,24 L1200,48 L0,48 Z" fill="#F5F0E8"/>
+      </svg>
+    </div>
+
+    <!-- TIMELINE -->
+    <section class="section about-story">
+      <div class="container">
+        <div class="about-story__header">
+          <h2 data-fr="Un chemin de rupture<br>et de reconstruction" data-en="A path of breaking down<br>and rebuilding">Un chemin de rupture<br>et de reconstruction</h2>
+          <p data-fr="Chaque étape m'a appris quelque chose d'irremplaçable." data-en="Every step taught me something irreplaceable.">Chaque étape m'a appris quelque chose d'irremplaçable.</p>
+        </div>
+        <div class="timeline">
+
+          <article class="timeline__item">
+            <div class="timeline__dot"></div>
+            <p class="timeline__year" data-fr="2017 — Le déclic" data-en="2017 — The wake-up call">2017 — Le déclic</p>
+            <h3 class="timeline__title" data-fr="L'épuisement comme signal d'alarme" data-en="Exhaustion as a warning signal">L'épuisement comme signal d'alarme</h3>
+            <p class="timeline__text"
+               data-fr="Burnout. Le mot clinique ne rend pas justice à ce que c'est vraiment : se lever incapable de faire face à une journée ordinaire. Je mangeais « sainement », je faisais du sport, je suivais toutes les règles. Pourtant, mon corps rendait les armes. C'est là que j'ai commencé à questionner les fondements — pas les détails."
+               data-en="Burnout. The clinical word doesn't capture what it really is: waking up unable to face an ordinary day. I was eating 'healthily', exercising, following all the rules. Yet my body was giving up. That's when I started questioning the foundations — not the details.">
+              Burnout. Le mot clinique ne rend pas justice à ce que c'est vraiment : se lever incapable de faire face à une journée ordinaire. Je mangeais « sainement », je faisais du sport, je suivais toutes les règles. Pourtant, mon corps rendait les armes. C'est là que j'ai commencé à questionner les fondements — pas les détails.
+            </p>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__dot"></div>
+            <p class="timeline__year" data-fr="2018 — L'alimentation" data-en="2018 — Food">2018 — L'alimentation</p>
+            <h3 class="timeline__title" data-fr="Retourner aux sources animales" data-en="Back to animal-based eating">Retourner aux sources animales</h3>
+            <p class="timeline__text"
+               data-fr="Après des mois de recherches — études, anthropologie, biochimie — j'ai fait le grand saut : exit les céréales, les huiles industrielles, les substituts. Place à la viande de qualité, aux œufs, au beurre cru, aux fruits de saison, au miel brut. En six mois, l'énergie revenait. La clarté mentale aussi. Pas un régime. Un retour à ce que le corps comprend depuis des millénaires."
+               data-en="After months of research — studies, anthropology, biochemistry — I took the plunge: out went grains, industrial oils, and substitutes. In came quality meat, eggs, raw butter, seasonal fruit, and raw honey. Within six months, energy returned. Mental clarity too. Not a diet. A return to what the body has understood for millennia.">
+              Après des mois de recherches — études, anthropologie, biochimie — j'ai fait le grand saut : exit les céréales, les huiles industrielles, les substituts. Place à la viande de qualité, aux œufs, au beurre cru, aux fruits de saison, au miel brut. En six mois, l'énergie revenait. La clarté mentale aussi. Pas un régime. Un retour à ce que le corps comprend depuis des millénaires.
+            </p>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__dot"></div>
+            <p class="timeline__year" data-fr="2019 — Le corps entier" data-en="2019 — The whole body">2019 — Le corps entier</p>
+            <h3 class="timeline__title" data-fr="L'hygiène de vie repensée de fond en comble" data-en="Lifestyle hygiene redesigned from scratch">L'hygiène de vie repensée de fond en comble</h3>
+            <p class="timeline__text"
+               data-fr="Nourrir le corps ne suffisait pas. J'ai étendu la démarche à tout : les pieds nus sur la terre, les vêtements naturels (lin, laine, coton brut) contre la peau, la lumière du matin sans filtre d'écran. Et surtout : identifier et couper mes addictions modernes — réseaux, notifications, stimulation permanente. Ce n'est pas de l'ascétisme. C'est de la précision."
+               data-en="Feeding the body wasn't enough. I extended the approach to everything: bare feet on the earth, natural fabrics (linen, wool, raw cotton) against the skin, morning light without a screen filter. And above all: identifying and cutting my modern addictions — social media, notifications, constant stimulation. This isn't asceticism. It's precision.">
+              Nourrir le corps ne suffisait pas. J'ai étendu la démarche à tout : les pieds nus sur la terre, les vêtements naturels (lin, laine, coton brut) contre la peau, la lumière du matin sans filtre d'écran. Et surtout : identifier et couper mes addictions modernes — réseaux, notifications, stimulation permanente. Ce n'est pas de l'ascétisme. C'est de la précision.
+            </p>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__dot"></div>
+            <p class="timeline__year" data-fr="2020 — Le numérique" data-en="2020 — The digital">2020 — Le numérique</p>
+            <h3 class="timeline__title" data-fr="GrapheneOS et la souveraineté des données" data-en="GrapheneOS and data sovereignty">GrapheneOS et la souveraineté des données</h3>
+            <p class="timeline__text"
+               data-fr="La pandémie a accéléré quelque chose que je pressentais depuis longtemps : nos téléphones ne sont pas des outils neutres. J'ai migré vers GrapheneOS, appris les bases de l'anonymat en ligne, réduit ma surface d'exposition aux GAFAM. Ce n'est pas de la paranoïa — c'est de la cohérence. Si tu soignes ton alimentation, pourquoi laisser n'importe quoi entrer dans ton esprit par les écrans ?"
+               data-en="The pandemic accelerated something I'd sensed for a long time: our phones are not neutral tools. I migrated to GrapheneOS, learned the basics of online anonymity, and reduced my exposure to Big Tech. This isn't paranoia — it's consistency. If you care about what you eat, why let anything into your mind through screens?">
+              La pandémie a accéléré quelque chose que je pressentais depuis longtemps : nos téléphones ne sont pas des outils neutres. J'ai migré vers GrapheneOS, appris les bases de l'anonymat en ligne, réduit ma surface d'exposition aux GAFAM. Ce n'est pas de la paranoïa — c'est de la cohérence. Si tu soignes ton alimentation, pourquoi laisser n'importe quoi entrer dans ton esprit par les écrans ?
+            </p>
+          </article>
+
+          <article class="timeline__item">
+            <div class="timeline__dot timeline__dot--filled"></div>
+            <p class="timeline__year" data-fr="Aujourd'hui" data-en="Today">Aujourd'hui</p>
+            <h3 class="timeline__title" data-fr="Partager ce protocole" data-en="Sharing the protocol">Partager ce protocole</h3>
+            <p class="timeline__text"
+               data-fr="Cinq ans après ce premier burnout, j'ai condensé tout ce que j'ai appris, testé, abandonné ou adopté dans un guide concret en 3 modules. Pas pour te convaincre. Pour te donner les clés — et te laisser décider."
+               data-en="Five years after that first burnout, I've condensed everything I've learned, tested, dropped or adopted into a concrete 3-module guide. Not to convince you. To give you the keys — and let you decide.">
+              Cinq ans après ce premier burnout, j'ai condensé tout ce que j'ai appris, testé, abandonné ou adopté dans un guide concret en 3 modules. Pas pour te convaincre. Pour te donner les clés — et te laisser décider.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true" style="transform:scaleY(-1)">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C200,48 400,0 600,24 C800,48 1000,0 1200,24 L1200,48 L0,48 Z" fill="#FDFAF5"/>
+      </svg>
+    </div>
+
+    <!-- VALEURS -->
+    <section class="section about-values">
+      <div class="container">
+        <div class="about-values__header">
+          <h2 data-fr="Ce en quoi je crois" data-en="What I believe in">Ce en quoi je crois</h2>
+          <p data-fr="Les principes qui guident chaque ligne du protocole." data-en="The principles behind every line of the protocol.">Les principes qui guident chaque ligne du protocole.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🌿</span>
+            <h3 class="value-card__title" data-fr="Ancestralité" data-en="Ancestral roots">Ancestralité</h3>
+            <p class="value-card__text" data-fr="Le corps humain s'est construit sur des millions d'années. Les « innovations » des 50 dernières années méritent d'être scrutées, pas célébrées." data-en="The human body was built over millions of years. The 'innovations' of the last 50 deserve scrutiny, not celebration.">Le corps humain s'est construit sur des millions d'années. Les « innovations » des 50 dernières années méritent d'être scrutées, pas célébrées.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🔬</span>
+            <h3 class="value-card__title" data-fr="Rigueur" data-en="Rigour">Rigueur</h3>
+            <p class="value-card__text" data-fr="Chaque recommandation s'appuie sur des sources vérifiables — études, données primaires — pas sur le consensus Instagram du moment." data-en="Every recommendation is backed by verifiable sources — studies, primary data — not the current Instagram consensus.">Chaque recommandation s'appuie sur des sources vérifiables — études, données primaires — pas sur le consensus Instagram du moment.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🛡️</span>
+            <h3 class="value-card__title" data-fr="Souveraineté" data-en="Sovereignty">Souveraineté</h3>
+            <p class="value-card__text" data-fr="Ni les grandes marques alimentaires, ni les plateformes numériques ne devraient décider de ce que tu manges, penses ou ressens." data-en="Neither food corporations nor digital platforms should decide what you eat, think, or feel.">Ni les grandes marques alimentaires, ni les plateformes numériques ne devraient décider de ce que tu manges, penses ou ressens.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">⚖️</span>
+            <h3 class="value-card__title" data-fr="Honnêteté" data-en="Honesty">Honnêteté</h3>
+            <p class="value-card__text" data-fr="Ce protocole n'est pas parfait. Ce qui fonctionne pour moi peut demander des ajustements pour toi. Je ne vends pas une vérité absolue." data-en="This protocol isn't perfect. What works for me may need adjustment for you. I'm not selling absolute truth.">Ce protocole n'est pas parfait. Ce qui fonctionne pour moi peut demander des ajustements pour toi. Je ne vends pas une vérité absolue.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🌱</span>
+            <h3 class="value-card__title" data-fr="Progressivité" data-en="Gradualness">Progressivité</h3>
+            <p class="value-card__text" data-fr="Pas de révolution du jour au lendemain. Chaque module peut être appliqué indépendamment, à ton rythme, sans culpabilité." data-en="No overnight revolution. Each module can be applied independently, at your own pace, without guilt.">Pas de révolution du jour au lendemain. Chaque module peut être appliqué indépendamment, à ton rythme, sans culpabilité.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🤫</span>
+            <h3 class="value-card__title" data-fr="Discrétion" data-en="Discretion">Discrétion</h3>
+            <p class="value-card__text" data-fr="Vivre différemment n'oblige pas à en faire une identité publique. Le protocole se pratique en silence, sans prosélytisme." data-en="Living differently doesn't require making it a public identity. The protocol is practised quietly, without proselytising.">Vivre différemment n'oblige pas à en faire une identité publique. Le protocole se pratique en silence, sans prosélytisme.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CITATION -->
+    <section class="about-quote" aria-label="Citation">
+      <blockquote>
+        <p data-fr="« La santé n'est pas l'absence de maladie. C'est l'énergie de construire ce qui compte vraiment — tous les jours, sans y penser. »"
+           data-en="&ldquo;Health is not the absence of disease. It is the energy to build what truly matters — every day, without having to think about it.&rdquo;">
+          « La santé n'est pas l'absence de maladie. C'est l'énergie de construire ce qui compte vraiment — tous les jours, sans y penser. »
+        </p>
+        <cite data-fr="— Principe directeur du Protocole Détox &amp; Liberté"
+              data-en="— Guiding principle of the Détox &amp; Liberté Protocol">
+          — Principe directeur du Protocole Détox &amp; Liberté
+        </cite>
+      </blockquote>
+    </section>
+
+    <!-- CTA -->
+    <section class="section about-cta">
+      <div class="container">
+        <h2 data-fr="Prêt à lire le protocole&nbsp;?" data-en="Ready to read the protocol?">Prêt à lire le protocole&nbsp;?</h2>
+        <p data-fr="Trois modules. Un guide concret. Des applications immédiates. Sans abonnement, sans upsell, sans spam."
+           data-en="Three modules. A concrete guide. Immediate applications. No subscription, no upsell, no spam.">
+          Trois modules. Un guide concret. Des applications immédiates. Sans abonnement, sans upsell, sans spam.
+        </p>
+        <div class="about-cta__btns">
+          <a href="https://gumroad.com" class="btn btn--primary" target="_blank" rel="noopener"
+             data-fr="Obtenir l'ebook sur Gumroad →" data-en="Get the ebook on Gumroad →">Obtenir l'ebook sur Gumroad →</a>
+          <a href="contact.html" class="btn btn--secondary"
+             data-fr="Me poser une question" data-en="Ask me a question">Me poser une question</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" aria-label="Pied de page">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__logo">Détox &amp; Liberté</p>
+        <p class="footer__tagline"
+           data-fr="Un protocole en 3 modules pour reprendre le contrôle de son alimentation, son hygiène de vie et sa souveraineté numérique."
+           data-en="A 3-module protocol to take back control of your diet, lifestyle, and digital sovereignty.">
+          Un protocole en 3 modules pour reprendre le contrôle de son alimentation, son hygiène de vie et sa souveraineté numérique.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+        <ul>
+          <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+          <li><a href="about.html" data-fr="Mon histoire" data-en="My story">Mon histoire</a></li>
+          <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-fr="L'ebook" data-en="The ebook">L'ebook</h4>
+        <ul>
+          <li><a href="index.html#modules" data-fr="Les 3 modules" data-en="The 3 modules">Les 3 modules</a></li>
+          <li><a href="https://gumroad.com" target="_blank" rel="noopener"
+                 data-fr="Acheter sur Gumroad" data-en="Buy on Gumroad">Acheter sur Gumroad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p data-fr="© 2024 Protocole Détox &amp; Liberté — Tous droits réservés."
+         data-en="© 2024 Protocole Détox &amp; Liberté — All rights reserved.">
+        © 2024 Protocole Détox &amp; Liberté — Tous droits réservés.
+      </p>
+      <p data-fr="Site statique hébergé sur GitHub Pages." data-en="Static site hosted on GitHub Pages.">Site statique hébergé sur GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

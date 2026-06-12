@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Protocole Détox & Liberté — Un guide en 3 modules pour reprendre le contrôle de votre alimentation, hygiène de vie et souveraineté numérique." />
+  <title>Protocole Détox & Liberté — Ebook en 3 modules</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Anti-flash thème -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('pdl-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      padding-top: var(--nav-h);
+      display: flex;
+      align-items: center;
+      background: var(--blanc);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=70&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    [data-theme="dark"] .hero::before { opacity: 0.05; }
+    .hero__inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 6rem 1.5rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terre);
+      border: 1px solid rgba(139,115,85,0.35);
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .hero__title {
+      max-width: 640px;
+      margin-bottom: 1.5rem;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--terre);
+    }
+    .hero__subtitle {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+    .hero__cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .hero__scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--texte-soft);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--ff-body);
+      transition: color var(--transition);
+    }
+    .hero__scroll-hint:hover { color: var(--vert); }
+    .hero__scroll-hint svg { width: 16px; height: 16px; animation: bounce 2s infinite; }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(4px); }
+    }
+
+    /* ── Section Qui suis-je ── */
+    .about-section { background: var(--fond); }
+    .about-section__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-section__img-wrap { position: relative; }
+    .about-section__img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius);
+      filter: saturate(0.85);
+    }
+    .about-section__img-deco {
+      position: absolute;
+      inset: 12px -12px -12px 12px;
+      border-radius: var(--radius);
+      background: var(--beige);
+      z-index: -1;
+    }
+    .about-section__tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terre);
+      margin-bottom: 0.75rem;
+    }
+    .about-section__text { font-size: 0.95rem; line-height: 1.8; margin: 1rem 0 1.75rem; }
+    .about-section__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .stat-card {
+      background: var(--blanc);
+      border: 1px solid var(--beige);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .stat-card__number {
+      font-family: var(--ff-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--vert);
+      line-height: 1;
+    }
+    .stat-card__label { font-size: 0.78rem; color: var(--texte-soft); margin-top: 0.25rem; }
+
+    /* ── Section Modules ── */
+    .modules-section { background: var(--blanc); }
+    .modules-section__header { text-align: center; margin-bottom: 3rem; }
+    .modules-section__header p { max-width: 480px; margin: 0.75rem auto 0; }
+    .modules-btn-wrap { text-align: center; margin-bottom: 3rem; }
+
+    /* Cartes modules (cachées par défaut, révélées au clic) */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease, max-height 0.5s ease;
+    }
+    .modules-grid.open {
+      max-height: 800px;
+      opacity: 1;
+    }
+    .module-card {
+      background: var(--fond);
+      border: 1px solid var(--beige);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+    .module-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--terre);
+      box-shadow: 0 8px 24px rgba(44,62,45,0.08);
+    }
+    [data-theme="dark"] .module-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .module-card__num {
+      font-family: var(--ff-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--terre);
+      margin-bottom: 0.75rem;
+    }
+    .module-card__icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .module-card__title { font-size: 1.1rem; margin-bottom: 0.75rem; }
+    .module-card__text { font-size: 0.875rem; line-height: 1.7; }
+    .module-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+    }
+    .module-tag {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      background: var(--beige);
+      color: var(--vert);
+      font-weight: 500;
+    }
+
+    /* ── CTA Gumroad ── */
+    .gumroad-section { background: var(--vert); text-align: center; padding: 5rem 0; }
+    .gumroad-section h2 { color: rgba(255,255,255,0.95); margin-bottom: 1rem; }
+    .gumroad-section p  { color: rgba(255,255,255,0.65); max-width: 440px; margin: 0 auto 2.5rem; }
+    .btn--gumroad {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 1rem 2.5rem;
+      border-radius: 100px;
+      background: var(--fond);
+      color: var(--vert);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+      letter-spacing: 0.02em;
+    }
+    .btn--gumroad:hover { background: #fff; transform: translateY(-2px); }
+    .gumroad-section .reassurance {
+      margin-top: 1.25rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .about-section__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-section__img-wrap { max-width: 280px; margin: 0 auto; }
+      .modules-grid { grid-template-columns: 1fr; }
+      .modules-grid.open { max-height: 2400px; }
+    }
+    @media (max-width: 480px) {
+      .hero__inner { padding: 4rem 1.5rem 3.5rem; }
+      .about-section__stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <header>
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav__inner">
+
+        <a href="index.html" class="nav__logo">Détox<span>&</span>Liberté</a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="index.html" class="active" data-fr="Accueil" data-en="Home">Accueil</a></li>
+          <li><a href="about.html" data-fr="Mon histoire" data-en="My story">Mon histoire</a></li>
+          <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+          <li>
+            <a href="https://gumroad.com" class="nav__cta" target="_blank" rel="noopener"
+               data-fr="Obtenir l'ebook →" data-en="Get the ebook →">Obtenir l'ebook →</a>
+          </li>
+        </ul>
+
+        <div class="nav__controls">
+          <!-- Toggle thème : lune = passer en dark / soleil = passer en light -->
+          <button class="theme-toggle" id="theme-toggle"
+                  aria-label="Passer en mode sombre"
+                  data-fr-label="Passer en mode sombre"
+                  data-en-label="Switch to dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="icon-sun" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1"    x2="12" y2="3"/>
+              <line x1="12" y1="21"   x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22"   x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1"  y1="12" x2="3"  y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+              <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+
+          <!-- Switcher FR / EN -->
+          <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue / Language">
+            <button data-lang="fr" class="active">FR</button>
+            <button data-lang="en">EN</button>
+          </div>
+
+          <!-- Burger mobile -->
+          <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+
+        <span class="hero__eyebrow"
+              data-fr="Ebook · 3 modules · Téléchargement immédiat"
+              data-en="Ebook · 3 modules · Instant download">
+          Ebook · 3 modules · Téléchargement immédiat
+        </span>
+
+        <h1 class="hero__title" id="hero-title">
+          <span data-fr="Reprendre le contrôle.<br>De votre assiette,<br>de votre corps,<br>de votre <em>vie numérique</em>."
+                data-en="Take back control.<br>Of your plate,<br>your body,<br>your <em>digital life</em>.">
+            Reprendre le contrôle.<br>De votre assiette,<br>de votre corps,<br>de votre <em>vie numérique</em>.
+          </span>
+        </h1>
+
+        <p class="hero__subtitle"
+           data-fr="Un protocole concret, sans dogme et sans jargon. Trois domaines, trois modules, des applications que vous pouvez commencer dès aujourd'hui."
+           data-en="A concrete protocol, free from dogma and jargon. Three domains, three modules, with applications you can start today.">
+          Un protocole concret, sans dogme et sans jargon. Trois domaines, trois modules, des applications que vous pouvez commencer dès aujourd'hui.
+        </p>
+
+        <div class="hero__cta-group">
+          <a href="https://gumroad.com" class="btn btn--primary" target="_blank" rel="noopener"
+             data-fr="Obtenir l'ebook →" data-en="Get the ebook →">Obtenir l'ebook →</a>
+          <button class="hero__scroll-hint" id="scroll-to-about">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            <span data-fr="Découvrir mon histoire" data-en="Learn my story">Découvrir mon histoire</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Ondulation -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C200,48 400,0 600,24 C800,48 1000,0 1200,24 L1200,48 L0,48 Z" fill="#F5F0E8"/>
+      </svg>
+    </div>
+
+    <!-- ═══════════════════ QUI SUIS-JE ═══════════════════ -->
+    <section class="section about-section" id="qui-suis-je" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-section__inner">
+
+          <div class="about-section__img-wrap">
+            <div class="about-section__img-deco" aria-hidden="true"></div>
+            <img class="about-section__img"
+                 src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=75&fit=crop"
+                 alt="Paysage naturel — montagne et forêt"
+                 loading="lazy" />
+          </div>
+
+          <div>
+            <p class="about-section__tag" data-fr="Qui suis-je" data-en="Who I am">Qui suis-je</p>
+            <h2 id="about-title"
+                data-fr="Pas un expert.<br>Quelqu'un qui a cherché."
+                data-en="Not an expert.<br>Someone who searched.">
+              Pas un expert.<br>Quelqu'un qui a cherché.
+            </h2>
+            <p class="about-section__text"
+               data-fr="En 2017, un burnout m'a forcé à tout remettre en question. J'ai passé des années à tester, lire, et ajuster — alimentation animale, vêtements naturels, GrapheneOS. Ce protocole, c'est le résultat de ce travail. Pas une vérité absolue : un point de départ solide."
+               data-en="In 2017, a burnout forced me to question everything. I spent years testing, reading, and adjusting — animal-based diet, natural clothing, GrapheneOS. This protocol is the result of that work. Not an absolute truth: a solid starting point.">
+              En 2017, un burnout m'a forcé à tout remettre en question. J'ai passé des années à tester, lire, et ajuster — alimentation animale, vêtements naturels, GrapheneOS. Ce protocole, c'est le résultat de ce travail. Pas une vérité absolue : un point de départ solide.
+            </p>
+            <a href="about.html" class="btn btn--secondary"
+               data-fr="Lire mon histoire complète →" data-en="Read my full story →">
+              Lire mon histoire complète →
+            </a>
+
+            <div class="about-section__stats">
+              <div class="stat-card">
+                <p class="stat-card__number">5+</p>
+                <p class="stat-card__label" data-fr="années de recherche" data-en="years of research">années de recherche</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-card__number">3</p>
+                <p class="stat-card__label" data-fr="modules concrets" data-en="concrete modules">modules concrets</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-card__number">0</p>
+                <p class="stat-card__label" data-fr="abonnement requis" data-en="subscription required">abonnement requis</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-card__number">100%</p>
+                <p class="stat-card__label" data-fr="applicable dès aujourd'hui" data-en="applicable today">applicable dès aujourd'hui</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Ondulation inversée -->
+    <div class="wave-divider" aria-hidden="true" style="transform:scaleY(-1)">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C200,48 400,0 600,24 C800,48 1000,0 1200,24 L1200,48 L0,48 Z" fill="#FDFAF5"/>
+      </svg>
+    </div>
+
+    <!-- ═══════════════════ LES 3 MODULES ═══════════════════ -->
+    <section class="section modules-section" id="modules" aria-labelledby="modules-title">
+      <div class="container">
+
+        <div class="modules-section__header">
+          <h2 id="modules-title" data-fr="Les 3 modules du protocole" data-en="The 3 protocol modules">Les 3 modules du protocole</h2>
+          <p data-fr="Chaque module est indépendant. Commencez par celui qui vous parle le plus."
+             data-en="Each module stands alone. Start with the one that speaks to you most.">
+            Chaque module est indépendant. Commencez par celui qui vous parle le plus.
+          </p>
+        </div>
+
+        <div class="modules-btn-wrap">
+          <button class="btn btn--primary" id="toggle-modules"
+                  data-fr-open="Découvrir les modules ↓" data-en-open="Explore the modules ↓"
+                  data-fr-close="Masquer les modules ↑"  data-en-close="Hide the modules ↑">
+            <span data-fr="Découvrir les modules ↓" data-en="Explore the modules ↓">Découvrir les modules ↓</span>
+          </button>
+        </div>
+
+        <div class="modules-grid" id="modules-grid" aria-live="polite">
+
+          <!-- Module 1 -->
+          <article class="module-card">
+            <p class="module-card__num" data-fr="Module 01" data-en="Module 01">Module 01</p>
+            <span class="module-card__icon" aria-hidden="true">🥩</span>
+            <h3 class="module-card__title" data-fr="Alimentation" data-en="Food">Alimentation</h3>
+            <p class="module-card__text"
+               data-fr="Retour à une alimentation ancestrale : viande, œufs, beurre cru, fruits, miel. Comprendre pourquoi les céréales et les huiles industrielles posent problème, et comment transitionner sans obsession ni frustration."
+               data-en="Back to ancestral eating: meat, eggs, raw butter, fruit, honey. Understanding why grains and industrial oils are problematic, and how to transition without obsession or frustration.">
+              Retour à une alimentation ancestrale : viande, œufs, beurre cru, fruits, miel. Comprendre pourquoi les céréales et les huiles industrielles posent problème, et comment transitionner sans obsession ni frustration.
+            </p>
+            <div class="module-card__tags">
+              <span class="module-tag" data-fr="Animal-based" data-en="Animal-based">Animal-based</span>
+              <span class="module-tag" data-fr="Fruits & miel" data-en="Fruits & honey">Fruits & miel</span>
+              <span class="module-tag" data-fr="Transition douce" data-en="Gentle transition">Transition douce</span>
+            </div>
+          </article>
+
+          <!-- Module 2 -->
+          <article class="module-card">
+            <p class="module-card__num" data-fr="Module 02" data-en="Module 02">Module 02</p>
+            <span class="module-card__icon" aria-hidden="true">🌿</span>
+            <h3 class="module-card__title" data-fr="Hygiène de vie" data-en="Lifestyle">Hygiène de vie</h3>
+            <p class="module-card__text"
+               data-fr="Pieds nus, vêtements naturels (lin, laine, coton), lumière matinale, gestion des addictions modernes. Chaque habitude choisie pour réduire la charge toxique quotidienne et reconnecter le corps à son environnement."
+               data-en="Bare feet, natural fabrics (linen, wool, cotton), morning light, managing modern addictions. Each habit chosen to reduce daily toxic load and reconnect the body to its environment.">
+              Pieds nus, vêtements naturels (lin, laine, coton), lumière matinale, gestion des addictions modernes. Chaque habitude choisie pour réduire la charge toxique quotidienne et reconnecter le corps à son environnement.
+            </p>
+            <div class="module-card__tags">
+              <span class="module-tag" data-fr="Pieds & posture" data-en="Feet & posture">Pieds & posture</span>
+              <span class="module-tag" data-fr="Fibres naturelles" data-en="Natural fibres">Fibres naturelles</span>
+              <span class="module-tag" data-fr="Anti-addiction" data-en="Anti-addiction">Anti-addiction</span>
+            </div>
+          </article>
+
+          <!-- Module 3 -->
+          <article class="module-card">
+            <p class="module-card__num" data-fr="Module 03" data-en="Module 03">Module 03</p>
+            <span class="module-card__icon" aria-hidden="true">🔐</span>
+            <h3 class="module-card__title" data-fr="Technologie" data-en="Technology">Technologie</h3>
+            <p class="module-card__text"
+               data-fr="GrapheneOS, anonymat en ligne, réduction de l'empreinte GAFAM. Pas de paranoïa — de la cohérence. Votre vie privée numérique mérite autant d'attention que votre alimentation."
+               data-en="GrapheneOS, online anonymity, reducing Big Tech exposure. No paranoia — just consistency. Your digital privacy deserves as much attention as your diet.">
+              GrapheneOS, anonymat en ligne, réduction de l'empreinte GAFAM. Pas de paranoïa — de la cohérence. Votre vie privée numérique mérite autant d'attention que votre alimentation.
+            </p>
+            <div class="module-card__tags">
+              <span class="module-tag">GrapheneOS</span>
+              <span class="module-tag" data-fr="Anonymat" data-en="Anonymity">Anonymat</span>
+              <span class="module-tag" data-fr="Anti-GAFAM" data-en="Anti-Big Tech">Anti-GAFAM</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ CTA GUMROAD ═══════════════════ -->
+    <section class="gumroad-section" aria-labelledby="gumroad-title">
+      <div class="container">
+        <h2 id="gumroad-title"
+            data-fr="Prêt à commencer ?" data-en="Ready to start?">Prêt à commencer ?</h2>
+        <p data-fr="Téléchargement unique. Pas d'abonnement. Pas d'email requis. Juste le guide."
+           data-en="One-time download. No subscription. No email required. Just the guide.">
+          Téléchargement unique. Pas d'abonnement. Pas d'email requis. Juste le guide.
+        </p>
+        <a href="https://gumroad.com" class="btn--gumroad" target="_blank" rel="noopener"
+           data-fr="Obtenir l'ebook sur Gumroad →" data-en="Get the ebook on Gumroad →">
+          Obtenir l'ebook sur Gumroad →
+        </a>
+        <p class="reassurance"
+           data-fr="Paiement sécurisé via Gumroad · PDF immédiat · Satisfait ou remboursé"
+           data-en="Secure payment via Gumroad · Instant PDF · Money-back guarantee">
+          Paiement sécurisé via Gumroad · PDF immédiat · Satisfait ou remboursé
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer" aria-label="Pied de page">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__logo">Détox &amp; Liberté</p>
+        <p class="footer__tagline"
+           data-fr="Un protocole en 3 modules pour reprendre le contrôle de son alimentation, son hygiène de vie et sa souveraineté numérique."
+           data-en="A 3-module protocol to take back control of your diet, lifestyle, and digital sovereignty.">
+          Un protocole en 3 modules pour reprendre le contrôle de son alimentation, son hygiène de vie et sa souveraineté numérique.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+        <ul>
+          <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
+          <li><a href="about.html" data-fr="Mon histoire" data-en="My story">Mon histoire</a></li>
+          <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-fr="L'ebook" data-en="The ebook">L'ebook</h4>
+        <ul>
+          <li><a href="#modules" data-fr="Les 3 modules" data-en="The 3 modules">Les 3 modules</a></li>
+          <li><a href="https://gumroad.com" target="_blank" rel="noopener"
+                 data-fr="Acheter sur Gumroad" data-en="Buy on Gumroad">Acheter sur Gumroad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p data-fr="© 2024 Protocole Détox &amp; Liberté — Tous droits réservés."
+         data-en="© 2024 Protocole Détox &amp; Liberté — All rights reserved.">
+        © 2024 Protocole Détox &amp; Liberté — Tous droits réservés.
+      </p>
+      <p data-fr="Site statique hébergé sur GitHub Pages."
+         data-en="Static site hosted on GitHub Pages.">
+        Site statique hébergé sur GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Scroll fluide vers #qui-suis-je ── */
+    document.getElementById('scroll-to-about').addEventListener('click', () => {
+      document.getElementById('qui-suis-je').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* ── Toggle modules (ouvre / ferme la grille) ── */
+    const toggleBtn  = document.getElementById('toggle-modules');
+    const modulesGrid = document.getElementById('modules-grid');
+
+    function updateToggleLabel() {
+      const lang   = document.documentElement.getAttribute('lang') || 'fr';
+      const isOpen = modulesGrid.classList.contains('open');
+      const key    = isOpen ? 'Close' : 'Open';
+      toggleBtn.querySelector('span').textContent =
+        isOpen
+          ? toggleBtn.dataset[`${lang}Close`]  || (lang === 'fr' ? 'Masquer les modules ↑' : 'Hide the modules ↑')
+          : toggleBtn.dataset[`${lang}Open`]   || (lang === 'fr' ? 'Découvrir les modules ↓' : 'Explore the modules ↓');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      modulesGrid.classList.toggle('open');
+      updateToggleLabel();
+      if (modulesGrid.classList.contains('open')) {
+        setTimeout(() => modulesGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+      }
+    });
+
+    /* Resynchronise le label si la langue change */
+    new MutationObserver(updateToggleLabel)
+      .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  </script>
+
+</body>
+</html>
+HTMLEOF
+echo "index done"

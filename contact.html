@@ -3,233 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contactez-moi pour toute question sur le Protocole Détox & Liberté." />
+  <meta name="description" content="Contactez l'auteur du protocole Détox & Liberté." />
   <title>Contact — Protocole Détox & Liberté</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script>
-    (function(){
-      var t = localStorage.getItem('pdl-theme');
-      if (t) document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-  <style>
-    .contact-page {
-      min-height: 100vh;
-      padding-top: calc(var(--nav-h) + 5rem);
-      padding-bottom: 6rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-    .contact-wrap { width: 100%; max-width: 560px; padding: 0 1.5rem; }
-    .contact-eyebrow {
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--terre); margin-bottom: 0.75rem;
-    }
-    .contact-title { margin-bottom: 0.75rem; }
-    .contact-intro { font-size: 1rem; line-height: 1.7; color: var(--texte-soft); margin-bottom: 2.5rem; max-width: 440px; }
-    .contact-card {
-      background: var(--blanc); border: 1px solid var(--beige);
-      border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem;
-    }
-    .contact-card__label {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--terre); margin-bottom: 0.6rem;
-    }
-    .contact-card__email-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
-    .contact-card__address {
-      font-family: var(--ff-display); font-size: 1.2rem; font-weight: 400;
-      color: var(--vert); flex: 1; min-width: 200px;
-    }
-    .btn-copy {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      font-family: var(--ff-body); font-size: 0.8rem; font-weight: 500;
-      padding: 0.55rem 1.1rem; border-radius: 100px;
-      border: 1.5px solid var(--beige); background: var(--fond);
-      color: var(--texte-soft); cursor: pointer; white-space: nowrap; flex-shrink: 0;
-    }
-    .btn-copy:hover { border-color: var(--terre); color: var(--terre); }
-    .btn-copy.copied { border-color: #4A7C59; color: #4A7C59; background: #EAF3DE; }
-    .btn-copy svg { width: 14px; height: 14px; flex-shrink: 0; }
-    .contact-card__divider { height: 1px; background: var(--beige); margin: 1.5rem 0; }
-    .btn-mailto {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: var(--ff-body); font-size: 0.9rem; font-weight: 500;
-      padding: 0.85rem 2rem; border-radius: 100px;
-      background: var(--vert); color: var(--blanc); border: none; cursor: pointer; text-decoration: none;
-    }
-    .btn-mailto:hover { background: var(--vert-clair); transform: translateY(-1px); }
-    .btn-mailto svg { width: 16px; height: 16px; }
-    .contact-note {
-      display: flex; align-items: flex-start; gap: 0.75rem;
-      background: rgba(139,115,85,0.08); border-left: 3px solid var(--terre);
-      border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 2.5rem;
-    }
-    .contact-note svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--terre); }
-    .contact-note p { font-size: 0.875rem; line-height: 1.6; }
-    .contact-note strong { color: var(--texte); font-weight: 500; }
-    .contact-topics { margin-bottom: 2.5rem; }
-    .contact-topics__title {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--texte-soft); margin-bottom: 0.75rem;
-    }
-    .contact-topics__list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .topic-chip {
-      font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 100px;
-      border: 1px solid var(--beige); background: var(--blanc);
-      color: var(--texte-soft); cursor: pointer; font-family: var(--ff-body);
-    }
-    .topic-chip:hover { border-color: var(--vert); color: var(--vert); background: rgba(44,62,45,0.05); }
-    .contact-alt { text-align: center; padding-top: 2rem; border-top: 1px solid var(--beige); }
-    .contact-alt p { font-size: 0.875rem; margin-bottom: 1rem; }
-    .contact-alt a { font-weight: 500; color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
-    .contact-alt a:hover { color: var(--terre); }
-    @media (max-width: 480px) {
-      .contact-card__address { font-size: 1rem; }
-      .contact-page { padding-top: calc(var(--nav-h) + 3rem); }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
     <nav class="nav" aria-label="Navigation principale">
       <div class="nav__inner">
-
         <a href="index.html" class="nav__logo">Détox<span>&</span>Liberté</a>
-
         <ul class="nav__links" role="list">
           <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
           <li><a href="about.html" data-fr="Mon histoire" data-en="My story">Mon histoire</a></li>
           <li><a href="contact.html" class="active" data-fr="Contact" data-en="Contact">Contact</a></li>
-          <li><a href="https://gumroad.com" class="nav__cta" target="_blank" rel="noopener"
-                 data-fr="Obtenir l'ebook →" data-en="Get the ebook →">Obtenir l'ebook →</a></li>
+          <li>
+            <a href="https://gumroad.com" class="nav__cta" target="_blank" rel="noopener"
+               data-fr="Obtenir l'ebook →" data-en="Get the ebook →">Obtenir l'ebook →</a>
+          </li>
         </ul>
-
         <div class="nav__controls">
-          <button class="theme-toggle" id="theme-toggle"
-                  aria-label="Passer en mode sombre"
-                  data-fr-label="Passer en mode sombre" data-en-label="Switch to dark mode">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Passer en mode sombre">
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
             <svg class="icon-sun" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              <line x1="12" y1="1"    x2="12" y2="3"/>
+              <line x1="12" y1="21"   x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22"   x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1"  y1="12" x2="3"  y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+              <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
             </svg>
           </button>
-
           <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue / Language">
             <button data-lang="fr" class="active">FR</button>
             <button data-lang="en">EN</button>
           </div>
-
           <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
-
       </div>
     </nav>
   </header>
-
   <main>
-    <div class="contact-page">
-      <div class="contact-wrap">
-
-        <p class="contact-eyebrow" data-fr="Prendre contact" data-en="Get in touch">Prendre contact</p>
-        <h1 class="contact-title">
-          <span data-fr="Une question ?<br>Écrivez-moi." data-en="A question?<br>Write to me.">Une question ?<br>Écrivez-moi.</span>
-        </h1>
-        <p class="contact-intro"
-           data-fr="Je lis chaque message personnellement. Pas d'assistant, pas de bot. Si votre question concerne l'ebook, le protocole ou une situation particulière — je ferai de mon mieux pour répondre avec soin."
-           data-en="I read every message personally. No assistant, no bot. If your question concerns the ebook, the protocol, or a specific situation — I'll do my best to reply thoughtfully.">
-          Je lis chaque message personnellement. Pas d'assistant, pas de bot. Si votre question concerne l'ebook, le protocole ou une situation particulière — je ferai de mon mieux pour répondre avec soin.
+    <section class="section" style="padding-top: calc(var(--nav-h) + 2rem);">
+      <div class="container">
+        <h1 data-fr="Contact" data-en="Contact">Contact</h1>
+        <p data-fr="Une question ? Une suggestion ? Écrivez-moi." data-en="A question? A suggestion? Write to me.">
+          Une question ? Une suggestion ? Écrivez-moi.
         </p>
-
-        <div class="contact-note" role="note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <p>
-            <strong data-fr="Délai de réponse habituel : 2 à 4 jours." data-en="Usual response time: 2 to 4 days.">Délai de réponse habituel : 2 à 4 jours.</strong><br>
-            <span data-fr="Je ne suis pas disponible en temps réel — c'est un choix, pas un oubli."
-                  data-en="I'm not available in real time — that's a choice, not an oversight.">Je ne suis pas disponible en temps réel — c'est un choix, pas un oubli.</span>
-          </p>
-        </div>
-
-        <div class="contact-topics">
-          <p class="contact-topics__title" data-fr="Sujets fréquents" data-en="Common topics">Sujets fréquents</p>
-          <div class="contact-topics__list" id="topics">
-            <button class="topic-chip"
-                    data-subject-fr="Question sur le Module 1 — Alimentation"
-                    data-subject-en="Question about Module 1 — Food"
-                    data-fr="🥩 Alimentation" data-en="🥩 Food">🥩 Alimentation</button>
-            <button class="topic-chip"
-                    data-subject-fr="Question sur le Module 2 — Hygiène de vie"
-                    data-subject-en="Question about Module 2 — Lifestyle"
-                    data-fr="🌿 Hygiène de vie" data-en="🌿 Lifestyle">🌿 Hygiène de vie</button>
-            <button class="topic-chip"
-                    data-subject-fr="Question sur le Module 3 — GrapheneOS & numérique"
-                    data-subject-en="Question about Module 3 — GrapheneOS & digital"
-                    data-fr="🔐 Numérique & GrapheneOS" data-en="🔐 Digital & GrapheneOS">🔐 Numérique & GrapheneOS</button>
-            <button class="topic-chip"
-                    data-subject-fr="Question sur l'achat de l'ebook"
-                    data-subject-en="Question about buying the ebook"
-                    data-fr="📖 L'ebook" data-en="📖 The ebook">📖 L'ebook</button>
-            <button class="topic-chip"
-                    data-subject-fr="Autre sujet"
-                    data-subject-en="Other topic"
-                    data-fr="💬 Autre" data-en="💬 Other">💬 Autre</button>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <p class="contact-card__label" data-fr="Adresse e-mail" data-en="Email address">Adresse e-mail</p>
-          <div class="contact-card__email-row">
-            <span class="contact-card__address" id="email-display"></span>
-            <button class="btn-copy" id="btn-copy"
-                    data-fr-label="Copier l'adresse e-mail" data-en-label="Copy email address"
-                    aria-label="Copier l'adresse e-mail">
-              <svg id="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-              </svg>
-              <svg id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" style="display:none">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
-              <span id="copy-label" data-fr="Copier" data-en="Copy">Copier</span>
-            </button>
-          </div>
-          <div class="contact-card__divider"></div>
-          <a class="btn-mailto" id="btn-mailto" href="#">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-            </svg>
-            <span data-fr="Écrire un e-mail" data-en="Send an email">Écrire un e-mail</span>
-          </a>
-        </div>
-
-        <div class="contact-alt">
-          <p data-fr="Vous préférez parcourir le site d'abord ?" data-en="Prefer to browse the site first?">Vous préférez parcourir le site d'abord ?</p>
-          <a href="about.html" data-fr="Lire mon histoire →" data-en="Read my story →">Lire mon histoire →</a>
-          &ensp;·&ensp;
-          <a href="index.html#modules" data-fr="Voir les 3 modules →" data-en="See the 3 modules →">Voir les 3 modules →</a>
-        </div>
-
+        <a href="index.html" class="btn btn--secondary">← Retour à l'accueil</a>
       </div>
-    </div>
+    </section>
   </main>
-
   <footer class="footer" aria-label="Pied de page">
     <div class="footer__inner">
       <div>
         <p class="footer__logo">Détox &amp; Liberté</p>
-        <p class="footer__tagline"
-           data-fr="Un protocole en 3 modules pour reprendre le contrôle de son alimentation, son hygiène de vie et sa souveraineté numérique."
-           data-en="A 3-module protocol to take back control of your diet, lifestyle, and digital sovereignty.">
+        <p class="footer__tagline" data-fr="Un protocole en 3 modules pour reprendre le contrôle de son alimentation, son hygiène de vie et sa souveraineté numérique." data-en="A 3-module protocol to take back control of your diet, lifestyle, and digital sovereignty.">
           Un protocole en 3 modules pour reprendre le contrôle de son alimentation, son hygiène de vie et sa souveraineté numérique.
         </p>
       </div>
@@ -241,84 +76,33 @@
           <li><a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a></li>
         </ul>
       </div>
-      <div class="footer__col">
-        <h4 data-fr="L'ebook" data-en="The ebook">L'ebook</h4>
-        <ul>
-          <li><a href="index.html#modules" data-fr="Les 3 modules" data-en="The 3 modules">Les 3 modules</a></li>
-          <li><a href="https://gumroad.com" target="_blank" rel="noopener"
-                 data-fr="Acheter sur Gumroad" data-en="Buy on Gumroad">Acheter sur Gumroad</a></li>
-        </ul>
-      </div>
     </div>
     <div class="footer__bottom">
-      <p data-fr="© 2024 Protocole Détox &amp; Liberté — Tous droits réservés."
-         data-en="© 2024 Protocole Détox &amp; Liberté — All rights reserved.">
+      <p data-fr="© 2024 Protocole Détox &amp; Liberté — Tous droits réservés." data-en="© 2024 Protocole Détox &amp; Liberté — All rights reserved.">
         © 2024 Protocole Détox &amp; Liberté — Tous droits réservés.
       </p>
-      <p data-fr="Site statique hébergé sur GitHub Pages." data-en="Static site hosted on GitHub Pages.">Site statique hébergé sur GitHub Pages.</p>
     </div>
   </footer>
-
-  <script src="js/main.js"></script>
   <script>
-    /* Email obfusqué */
-    const u = 'contact', d = 'protocole-detox.fr';
-    const email = u + '@' + d;
-    document.getElementById('email-display').textContent = email;
-
-    const mailtoBtn = document.getElementById('btn-mailto');
-    let currentSubject = { fr: 'Question — Protocole Détox & Liberté', en: 'Question — Détox & Liberté Protocol' };
-    let selectedChip = null;
-
-    function getLang() { return document.documentElement.getAttribute('lang') || 'fr'; }
-
-    function buildMailto() {
-      const lang = getLang();
-      const subject = selectedChip
-        ? (lang === 'fr' ? selectedChip.dataset.subjectFr : selectedChip.dataset.subjectEn)
-        : currentSubject[lang];
-      mailtoBtn.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject);
-    }
-    buildMailto();
-
-    /* Rebuild mailto quand la langue change (observe l'attribut lang) */
-    new MutationObserver(buildMailto).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-
-    /* Chips */
-    document.getElementById('topics').addEventListener('click', e => {
-      const chip = e.target.closest('.topic-chip');
-      if (!chip) return;
-      document.querySelectorAll('.topic-chip').forEach(c => c.style.cssText = '');
-      chip.style.borderColor = 'var(--vert)';
-      chip.style.color = 'var(--vert)';
-      chip.style.background = 'rgba(44,62,45,0.07)';
-      selectedChip = chip;
-      buildMailto();
-    });
-
-    /* Copier */
-    document.getElementById('btn-copy').addEventListener('click', async () => {
-      try { await navigator.clipboard.writeText(email); }
-      catch {
-        const ta = document.createElement('textarea');
-        ta.value = email; ta.style.cssText = 'position:fixed;opacity:0';
-        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
-        document.body.removeChild(ta);
-      }
-      const btn = document.getElementById('btn-copy');
-      const lang = getLang();
-      btn.classList.add('copied');
-      document.getElementById('icon-copy').style.display = 'none';
-      document.getElementById('icon-check').style.display = 'block';
-      document.getElementById('copy-label').textContent = lang === 'fr' ? 'Copié !' : 'Copied!';
-      setTimeout(() => {
-        btn.classList.remove('copied');
-        document.getElementById('icon-copy').style.display = 'block';
-        document.getElementById('icon-check').style.display = 'none';
-        document.getElementById('copy-label').textContent = lang === 'fr' ? 'Copier' : 'Copy';
-      }, 2500);
-    });
+    // Script identique à index.html
+     (function(){ var t = localStorage.getItem('pdl-theme'); if (t) document.documentElement.setAttribute('data-theme', t); })();
   </script>
-
+  <script>
+    const themeToggle = document.getElementById('theme-toggle'); const html = document.documentElement;
+    function initTheme() { const savedTheme = localStorage.getItem('pdl-theme') || 'light'; html.setAttribute('data-theme', savedTheme); updateThemeIcon(savedTheme); }
+    function updateThemeIcon(theme) { const iconMoon = themeToggle.querySelector('.icon-moon'); const iconSun = themeToggle.querySelector('.icon-sun'); if (theme === 'dark') { iconMoon.style.display = 'none'; iconSun.style.display = 'block'; themeToggle.setAttribute('aria-label', 'Passer en mode clair'); } else { iconMoon.style.display = 'block'; iconSun.style.display = 'none'; themeToggle.setAttribute('aria-label', 'Passer en mode sombre'); } }
+    themeToggle.addEventListener('click', () => { const currentTheme = html.getAttribute('data-theme'); const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', newTheme); localStorage.setItem('pdl-theme', newTheme); updateThemeIcon(newTheme); });
+    initTheme();
+    // Langue
+    const langToggle = document.getElementById('lang-toggle'); const langButtons = langToggle.querySelectorAll('button');
+    function setLanguage(lang) { localStorage.setItem('pdl-lang', lang); html.setAttribute('lang', lang); langButtons.forEach(btn => { btn.classList.toggle('active', btn.dataset.lang === lang); }); document.querySelectorAll('[data-fr][data-en]').forEach(el => { const text = el.dataset[lang]; if (text) { if (el.tagName === 'INPUT' || el.tagName === 'BUTTON' || el.tagName === 'OPTION') { el.value = text; } el.innerHTML = text; } }); document.querySelectorAll(`[data-${lang}-label]`).forEach(el => { el.setAttribute('aria-label', el.dataset[`${lang}Label`]); }); }
+    langButtons.forEach(btn => { btn.addEventListener('click', () => { setLanguage(btn.dataset.lang); }); }); const savedLang = localStorage.getItem('pdl-lang') || 'fr'; setLanguage(savedLang);
+    // Burger
+    const navBurger = document.querySelector('.nav__burger'); const navLinks = document.querySelector('.nav__links');
+    navBurger.addEventListener('click', () => { const isExpanded = navBurger.getAttribute('aria-expanded') === 'true'; navBurger.setAttribute('aria-expanded', !isExpanded); navLinks.classList.toggle('active'); });
+    navLinks.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { navBurger.setAttribute('aria-expanded', 'false'); navLinks.classList.remove('active'); }); });
+    updateActiveLink();
+    function updateActiveLink() { const currentPage = window.location.pathname.split('/').pop() || 'index.html'; document.querySelectorAll('.nav__links a').forEach(link => { const href = link.getAttribute('href'); link.classList.toggle('active', href === currentPage || (currentPage === '' && href === 'index.html')); }); }
+  </script>
 </body>
 </html>

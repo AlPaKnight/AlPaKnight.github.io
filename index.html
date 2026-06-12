@@ -6,258 +6,14 @@
   <meta name="description" content="Protocole Détox & Liberté — Un guide en 3 modules pour reprendre le contrôle de votre alimentation, hygiène de vie et souveraineté numérique." />
   <title>Protocole Détox & Liberté — Ebook en 3 modules</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Anti-flash thème -->
-  <script>
-    (function(){
-      var t = localStorage.getItem('pdl-theme');
-      if (t) document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-  <style>
-    /* ── Hero ── */
-    .hero {
-      min-height: 100vh;
-      padding-top: var(--nav-h);
-      display: flex;
-      align-items: center;
-      background: var(--blanc);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=70&fit=crop');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.08;
-      pointer-events: none;
-    }
-    [data-theme="dark"] .hero::before { opacity: 0.05; }
-    .hero__inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 6rem 1.5rem 5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .hero__eyebrow {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--terre);
-      border: 1px solid rgba(139,115,85,0.35);
-      padding: 0.3rem 0.9rem;
-      border-radius: 100px;
-      margin-bottom: 1.5rem;
-    }
-    .hero__title {
-      max-width: 640px;
-      margin-bottom: 1.5rem;
-    }
-    .hero__title em {
-      font-style: italic;
-      color: var(--terre);
-    }
-    .hero__subtitle {
-      font-size: 1.1rem;
-      line-height: 1.75;
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-    }
-    .hero__cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
-    .hero__scroll-hint {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      color: var(--texte-soft);
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: var(--ff-body);
-      transition: color var(--transition);
-    }
-    .hero__scroll-hint:hover { color: var(--vert); }
-    .hero__scroll-hint svg { width: 16px; height: 16px; animation: bounce 2s infinite; }
-    @keyframes bounce {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(4px); }
-    }
-
-    /* ── Section Qui suis-je ── */
-    .about-section { background: var(--fond); }
-    .about-section__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .about-section__img-wrap { position: relative; }
-    .about-section__img {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      border-radius: var(--radius);
-      filter: saturate(0.85);
-    }
-    .about-section__img-deco {
-      position: absolute;
-      inset: 12px -12px -12px 12px;
-      border-radius: var(--radius);
-      background: var(--beige);
-      z-index: -1;
-    }
-    .about-section__tag {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--terre);
-      margin-bottom: 0.75rem;
-    }
-    .about-section__text { font-size: 0.95rem; line-height: 1.8; margin: 1rem 0 1.75rem; }
-    .about-section__stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .stat-card {
-      background: var(--blanc);
-      border: 1px solid var(--beige);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-    }
-    .stat-card__number {
-      font-family: var(--ff-display);
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--vert);
-      line-height: 1;
-    }
-    .stat-card__label { font-size: 0.78rem; color: var(--texte-soft); margin-top: 0.25rem; }
-
-    /* ── Section Modules ── */
-    .modules-section { background: var(--blanc); }
-    .modules-section__header { text-align: center; margin-bottom: 3rem; }
-    .modules-section__header p { max-width: 480px; margin: 0.75rem auto 0; }
-    .modules-btn-wrap { text-align: center; margin-bottom: 3rem; }
-
-    /* Cartes modules (cachées par défaut, révélées au clic) */
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease, max-height 0.5s ease;
-    }
-    .modules-grid.open {
-      max-height: 800px;
-      opacity: 1;
-    }
-    .module-card {
-      background: var(--fond);
-      border: 1px solid var(--beige);
-      border-radius: var(--radius);
-      padding: 2rem 1.5rem;
-      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
-      cursor: default;
-    }
-    .module-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--terre);
-      box-shadow: 0 8px 24px rgba(44,62,45,0.08);
-    }
-    [data-theme="dark"] .module-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-    .module-card__num {
-      font-family: var(--ff-display);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--terre);
-      margin-bottom: 0.75rem;
-    }
-    .module-card__icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-    .module-card__title { font-size: 1.1rem; margin-bottom: 0.75rem; }
-    .module-card__text { font-size: 0.875rem; line-height: 1.7; }
-    .module-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 1.25rem;
-    }
-    .module-tag {
-      font-size: 0.7rem;
-      padding: 0.25rem 0.65rem;
-      border-radius: 100px;
-      background: var(--beige);
-      color: var(--vert);
-      font-weight: 500;
-    }
-
-    /* ── CTA Gumroad ── */
-    .gumroad-section { background: var(--vert); text-align: center; padding: 5rem 0; }
-    .gumroad-section h2 { color: rgba(255,255,255,0.95); margin-bottom: 1rem; }
-    .gumroad-section p  { color: rgba(255,255,255,0.65); max-width: 440px; margin: 0 auto 2.5rem; }
-    .btn--gumroad {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--ff-body);
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 1rem 2.5rem;
-      border-radius: 100px;
-      background: var(--fond);
-      color: var(--vert);
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background var(--transition), transform var(--transition);
-      letter-spacing: 0.02em;
-    }
-    .btn--gumroad:hover { background: #fff; transform: translateY(-2px); }
-    .gumroad-section .reassurance {
-      margin-top: 1.25rem;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .about-section__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-section__img-wrap { max-width: 280px; margin: 0 auto; }
-      .modules-grid { grid-template-columns: 1fr; }
-      .modules-grid.open { max-height: 2400px; }
-    }
-    @media (max-width: 480px) {
-      .hero__inner { padding: 4rem 1.5rem 3.5rem; }
-      .about-section__stats { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <!-- NAVIGATION -->
   <header>
     <nav class="nav" aria-label="Navigation principale">
       <div class="nav__inner">
-
         <a href="index.html" class="nav__logo">Détox<span>&</span>Liberté</a>
-
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="active" data-fr="Accueil" data-en="Home">Accueil</a></li>
           <li><a href="about.html" data-fr="Mon histoire" data-en="My story">Mon histoire</a></li>
@@ -267,13 +23,8 @@
                data-fr="Obtenir l'ebook →" data-en="Get the ebook →">Obtenir l'ebook →</a>
           </li>
         </ul>
-
         <div class="nav__controls">
-          <!-- Toggle thème : lune = passer en dark / soleil = passer en light -->
-          <button class="theme-toggle" id="theme-toggle"
-                  aria-label="Passer en mode sombre"
-                  data-fr-label="Passer en mode sombre"
-                  data-en-label="Switch to dark mode">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Passer en mode sombre">
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
@@ -289,48 +40,38 @@
               <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
             </svg>
           </button>
-
-          <!-- Switcher FR / EN -->
           <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Langue / Language">
             <button data-lang="fr" class="active">FR</button>
             <button data-lang="en">EN</button>
           </div>
-
-          <!-- Burger mobile -->
           <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
         </div>
-
       </div>
     </nav>
   </header>
 
   <main>
-
-    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__inner">
-
         <span class="hero__eyebrow"
               data-fr="Ebook · 3 modules · Téléchargement immédiat"
               data-en="Ebook · 3 modules · Instant download">
           Ebook · 3 modules · Téléchargement immédiat
         </span>
-
         <h1 class="hero__title" id="hero-title">
           <span data-fr="Reprendre le contrôle.<br>De votre assiette,<br>de votre corps,<br>de votre <em>vie numérique</em>."
                 data-en="Take back control.<br>Of your plate,<br>your body,<br>your <em>digital life</em>.">
             Reprendre le contrôle.<br>De votre assiette,<br>de votre corps,<br>de votre <em>vie numérique</em>.
           </span>
         </h1>
-
         <p class="hero__subtitle"
            data-fr="Un protocole concret, sans dogme et sans jargon. Trois domaines, trois modules, des applications que vous pouvez commencer dès aujourd'hui."
            data-en="A concrete protocol, free from dogma and jargon. Three domains, three modules, with applications you can start today.">
           Un protocole concret, sans dogme et sans jargon. Trois domaines, trois modules, des applications que vous pouvez commencer dès aujourd'hui.
         </p>
-
         <div class="hero__cta-group">
           <a href="https://gumroad.com" class="btn btn--primary" target="_blank" rel="noopener"
              data-fr="Obtenir l'ebook →" data-en="Get the ebook →">Obtenir l'ebook →</a>
@@ -341,22 +82,19 @@
             <span data-fr="Découvrir mon histoire" data-en="Learn my story">Découvrir mon histoire</span>
           </button>
         </div>
-
       </div>
     </section>
 
-    <!-- Ondulation -->
     <div class="wave-divider" aria-hidden="true">
       <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,0 C200,48 400,0 600,24 C800,48 1000,0 1200,24 L1200,48 L0,48 Z" fill="#F5F0E8"/>
       </svg>
     </div>
 
-    <!-- ═══════════════════ QUI SUIS-JE ═══════════════════ -->
+    <!-- QUI SUIS-JE -->
     <section class="section about-section" id="qui-suis-je" aria-labelledby="about-title">
       <div class="container">
         <div class="about-section__inner">
-
           <div class="about-section__img-wrap">
             <div class="about-section__img-deco" aria-hidden="true"></div>
             <img class="about-section__img"
@@ -364,7 +102,6 @@
                  alt="Paysage naturel — montagne et forêt"
                  loading="lazy" />
           </div>
-
           <div>
             <p class="about-section__tag" data-fr="Qui suis-je" data-en="Who I am">Qui suis-je</p>
             <h2 id="about-title"
@@ -381,7 +118,6 @@
                data-fr="Lire mon histoire complète →" data-en="Read my full story →">
               Lire mon histoire complète →
             </a>
-
             <div class="about-section__stats">
               <div class="stat-card">
                 <p class="stat-card__number">5+</p>
@@ -401,22 +137,19 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Ondulation inversée -->
     <div class="wave-divider" aria-hidden="true" style="transform:scaleY(-1)">
       <svg viewBox="0 0 1200 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,0 C200,48 400,0 600,24 C800,48 1000,0 1200,24 L1200,48 L0,48 Z" fill="#FDFAF5"/>
       </svg>
     </div>
 
-    <!-- ═══════════════════ LES 3 MODULES ═══════════════════ -->
+    <!-- LES 3 MODULES -->
     <section class="section modules-section" id="modules" aria-labelledby="modules-title">
       <div class="container">
-
         <div class="modules-section__header">
           <h2 id="modules-title" data-fr="Les 3 modules du protocole" data-en="The 3 protocol modules">Les 3 modules du protocole</h2>
           <p data-fr="Chaque module est indépendant. Commencez par celui qui vous parle le plus."
@@ -424,7 +157,6 @@
             Chaque module est indépendant. Commencez par celui qui vous parle le plus.
           </p>
         </div>
-
         <div class="modules-btn-wrap">
           <button class="btn btn--primary" id="toggle-modules"
                   data-fr-open="Découvrir les modules ↓" data-en-open="Explore the modules ↓"
@@ -432,9 +164,7 @@
             <span data-fr="Découvrir les modules ↓" data-en="Explore the modules ↓">Découvrir les modules ↓</span>
           </button>
         </div>
-
         <div class="modules-grid" id="modules-grid" aria-live="polite">
-
           <!-- Module 1 -->
           <article class="module-card">
             <p class="module-card__num" data-fr="Module 01" data-en="Module 01">Module 01</p>
@@ -451,7 +181,6 @@
               <span class="module-tag" data-fr="Transition douce" data-en="Gentle transition">Transition douce</span>
             </div>
           </article>
-
           <!-- Module 2 -->
           <article class="module-card">
             <p class="module-card__num" data-fr="Module 02" data-en="Module 02">Module 02</p>
@@ -468,7 +197,6 @@
               <span class="module-tag" data-fr="Anti-addiction" data-en="Anti-addiction">Anti-addiction</span>
             </div>
           </article>
-
           <!-- Module 3 -->
           <article class="module-card">
             <p class="module-card__num" data-fr="Module 03" data-en="Module 03">Module 03</p>
@@ -485,12 +213,11 @@
               <span class="module-tag" data-fr="Anti-GAFAM" data-en="Anti-Big Tech">Anti-GAFAM</span>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════ CTA GUMROAD ═══════════════════ -->
+    <!-- CTA GUMROAD -->
     <section class="gumroad-section" aria-labelledby="gumroad-title">
       <div class="container">
         <h2 id="gumroad-title"
@@ -510,10 +237,9 @@
         </p>
       </div>
     </section>
-
   </main>
 
-  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <!-- FOOTER -->
   <footer class="footer" aria-label="Pied de page">
     <div class="footer__inner">
       <div>
@@ -553,41 +279,132 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- JAVASCRIPT UNIQUE -->
   <script>
-    /* ── Scroll fluide vers #qui-suis-je ── */
+    /* ── Scroll fluide ── */
     document.getElementById('scroll-to-about').addEventListener('click', () => {
       document.getElementById('qui-suis-je').scrollIntoView({ behavior: 'smooth' });
     });
 
-    /* ── Toggle modules (ouvre / ferme la grille) ── */
+    /* ── Toggle modules ── */
     const toggleBtn  = document.getElementById('toggle-modules');
     const modulesGrid = document.getElementById('modules-grid');
 
     function updateToggleLabel() {
       const lang   = document.documentElement.getAttribute('lang') || 'fr';
       const isOpen = modulesGrid.classList.contains('open');
-      const key    = isOpen ? 'Close' : 'Open';
-      toggleBtn.querySelector('span').textContent =
+      toggleBtn.querySelector('span').innerHTML =
         isOpen
-          ? toggleBtn.dataset[`${lang}Close`]  || (lang === 'fr' ? 'Masquer les modules ↑' : 'Hide the modules ↑')
-          : toggleBtn.dataset[`${lang}Open`]   || (lang === 'fr' ? 'Découvrir les modules ↓' : 'Explore the modules ↓');
+          ? (toggleBtn.dataset[`${lang}Close`]  || (lang === 'fr' ? 'Masquer les modules ↑' : 'Hide the modules ↑'))
+          : (toggleBtn.dataset[`${lang}Open`]   || (lang === 'fr' ? 'Découvrir les modules ↓' : 'Explore the modules ↓'));
     }
 
     toggleBtn.addEventListener('click', () => {
       modulesGrid.classList.toggle('open');
       updateToggleLabel();
-      if (modulesGrid.classList.contains('open')) {
-        setTimeout(() => modulesGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
-      }
     });
 
-    /* Resynchronise le label si la langue change */
-    new MutationObserver(updateToggleLabel)
-      .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
-  </script>
+    /* ── THEME ── */
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
 
+    function initTheme() {
+      const savedTheme = localStorage.getItem('pdl-theme') || 'light';
+      html.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+
+    function updateThemeIcon(theme) {
+      const iconMoon = themeToggle.querySelector('.icon-moon');
+      const iconSun = themeToggle.querySelector('.icon-sun');
+      if (theme === 'dark') {
+        iconMoon.style.display = 'none';
+        iconSun.style.display = 'block';
+        themeToggle.setAttribute('aria-label', 'Passer en mode clair');
+      } else {
+        iconMoon.style.display = 'block';
+        iconSun.style.display = 'none';
+        themeToggle.setAttribute('aria-label', 'Passer en mode sombre');
+      }
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('pdl-theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    initTheme();
+
+    /* ── LANGUE ── */
+    const langToggle = document.getElementById('lang-toggle');
+    const langButtons = langToggle.querySelectorAll('button');
+
+    function setLanguage(lang) {
+      localStorage.setItem('pdl-lang', lang);
+      html.setAttribute('lang', lang);
+      langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      
+      // Mettre à jour le contenu avec innerHTML pour garder les balises <br> et <em>
+      document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+        const text = el.dataset[lang];
+        if (text) {
+          if (el.tagName === 'INPUT' || el.tagName === 'BUTTON' || el.tagName === 'OPTION') {
+            el.value = text;
+          }
+          el.innerHTML = text;
+        }
+      });
+
+      // Mettre à jour les aria-labels
+      document.querySelectorAll(`[data-${lang}-label]`).forEach(el => {
+        el.setAttribute('aria-label', el.dataset[`${lang}Label`]);
+      });
+
+      updateToggleLabel();
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Initialiser la langue
+    const savedLang = localStorage.getItem('pdl-lang') || 'fr';
+    setLanguage(savedLang);
+
+    /* ── BURGER ── */
+    const navBurger = document.querySelector('.nav__burger');
+    const navLinks = document.querySelector('.nav__links');
+
+    navBurger.addEventListener('click', () => {
+      const isExpanded = navBurger.getAttribute('aria-expanded') === 'true';
+      navBurger.setAttribute('aria-expanded', !isExpanded);
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navBurger.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    /* ── LIEN ACTIF ── */
+    function updateActiveLink() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.nav__links a').forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === currentPage || 
+          (currentPage === '' && href === 'index.html'));
+      });
+    }
+    updateActiveLink();
+  </script>
 </body>
 </html>
-HTMLEOF
-echo "index done"

@@ -1,8 +1,8 @@
 /* ==========================================================================
-   PALETTE DE COULEURS & DESIGN TOKENS (Fidèle à l'Image 2)
+   PALETTE DE COULEURS & DESIGN TOKENS
    ========================================================================== */
 :root {
-    /* Mode Clair (Exactement comme la capture d'écran 2) */
+    /* Mode Clair (Exactement comme votre capture d'écran crème) */
     --color-bg-cream: #F5F2EA;           /* Fond chaud blanc cassé / crème */
     --color-primary-green: #1E3525;      /* Vert forêt profond très élégant */
     --color-accent-copper: #967B66;      /* Teinte cuivrée/terreuse des textes italiques */
@@ -26,7 +26,7 @@
 }
 
 [data-theme="dark"] {
-    /* Mode Sombre Organique (Forêt Nocturne) */
+    /* Mode Sombre Organique (Forêt Nocturne comme la 1ère image) */
     --color-bg-cream: #0B0F0C;           /* Fond sombre vert-noir */
     --color-primary-green: #A3D9AE;      /* Vert pastel lumineux et doux pour l'accessibilité */
     --color-accent-copper: #D9BEA7;      /* Cuivre adouci */
@@ -76,7 +76,7 @@ body.lang-en .lang-fr { display: none !important; }
 }
 
 /* ==========================================================================
-   NAVBAR COMPLÈTE (Fidèle à la maquette)
+   NAVBAR COMPLÈTE
    ========================================================================== */
 .navbar {
     position: fixed;
@@ -216,7 +216,7 @@ body.lang-en .lang-fr { display: none !important; }
 }
 
 /* ==========================================================================
-   HERO SECTION (Reproduction au pixel près de l'Image 2)
+   HERO SECTION (Image forestière adoucie)
    ========================================================================== */
 .hero {
     min-height: 100vh;
@@ -224,8 +224,6 @@ body.lang-en .lang-fr { display: none !important; }
     align-items: center;
     padding: 140px 24px 80px;
     position: relative;
-    
-    /* Image forestière en arrière-plan avec voile crème adouci */
     background-image: linear-gradient(
         to right, 
         rgba(245, 242, 234, 0.92) 30%, 
@@ -237,7 +235,6 @@ body.lang-en .lang-fr { display: none !important; }
     transition: background-image var(--m3-transition);
 }
 
-/* Surcharge adaptative pour le fond en mode sombre */
 [data-theme="dark"] .hero {
     background-image: linear-gradient(
         to right, 
@@ -251,10 +248,9 @@ body.lang-en .lang-fr { display: none !important; }
     max-width: 1100px;
     margin: 0 auto;
     width: 100%;
-    text-align: left; /* Alignement strict à gauche comme l'image */
+    text-align: left;
 }
 
-/* Badge M3 oblong avec bordure fine */
 .hero-badge {
     display: inline-block;
     border: 1px solid rgba(30, 53, 37, 0.25);
@@ -271,7 +267,6 @@ body.lang-en .lang-fr { display: none !important; }
     border-color: rgba(163, 217, 174, 0.3);
 }
 
-/* Titre principal massif Serif */
 .hero-title {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 5vw, 4.2rem);
@@ -282,14 +277,12 @@ body.lang-en .lang-fr { display: none !important; }
     letter-spacing: -0.02em;
 }
 
-/* L'accentuation "vie numérique" */
 .italic-accent {
     font-style: italic;
     color: var(--color-accent-copper);
     font-weight: 400;
 }
 
-/* Paragraphe d'introduction */
 .hero-lead {
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     color: var(--color-text-muted);
@@ -298,7 +291,6 @@ body.lang-en .lang-fr { display: none !important; }
     line-height: 1.6;
 }
 
-/* Conteneur d'actions */
 .hero-actions {
     display: flex;
     align-items: center;
@@ -306,7 +298,6 @@ body.lang-en .lang-fr { display: none !important; }
     flex-wrap: wrap;
 }
 
-/* Gros bouton pill primaire */
 .btn-hero-primary {
     background-color: var(--color-primary-green);
     color: var(--color-bg-cream);
@@ -323,7 +314,6 @@ body.lang-en .lang-fr { display: none !important; }
     box-shadow: 0 6px 20px rgba(30, 53, 37, 0.2);
 }
 
-/* Lien d'histoire secondaire */
 .btn-hero-secondary {
     display: flex;
     align-items: center;
@@ -345,7 +335,7 @@ body.lang-en .lang-fr { display: none !important; }
 }
 
 /* ==========================================================================
-   SECTIONS CONTENU GENERAL (Qui suis-je, Histoire, Modules)
+   SECTIONS GÉNÉRALES
    ========================================================================== */
 section {
     padding: 100px 0;
@@ -359,7 +349,6 @@ section {
     margin-bottom: 24px;
 }
 
-/* Histoire */
 .section-about {
     background-color: rgba(0, 0, 0, 0.015);
 }
@@ -371,7 +360,6 @@ section {
     line-height: 1.7;
 }
 
-/* Modules */
 .modules-header {
     text-align: center;
     margin-bottom: 60px;
@@ -388,7 +376,6 @@ section {
     gap: 24px;
 }
 
-/* Cartes épurées et interactives Material 3 */
 .module-card {
     background-color: var(--color-card-bg);
     border: 1px solid var(--color-card-border);
@@ -449,7 +436,67 @@ section {
 }
 
 /* ==========================================================================
-   FOOTER
+   SECTION ACCOMPAGNEMENT PRIVÉ
+   ========================================================================== */
+.section-support {
+    background-color: rgba(0, 0, 0, 0.005);
+}
+
+.support-header {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.support-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-m3-card);
+    padding: 36px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--m3-transition);
+}
+
+.support-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-green);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.02);
+}
+
+.support-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.support-card h3 {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text-dark);
+}
+
+.support-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   FOOTER (Pied de page)
    ========================================================================== */
 .footer {
     border-top: 1px solid rgba(0,0,0,0.04);
@@ -482,7 +529,7 @@ section {
 }
 
 /* ==========================================================================
-   MODAL WINDOW (Dialogue de surface Material 3)
+   MODAL WINDOW (Fenêtres pop-up)
    ========================================================================== */
 .modal-backdrop {
     position: fixed;
@@ -592,23 +639,23 @@ section {
     color: var(--color-text-dark);
     border: 1px solid var(--color-card-border);
     padding: 12px 28px;
+    border-radius: var(--radius-pill);
     font-family: var(--font-body);
     font-weight: 600;
+    cursor: pointer;
 }
 
 /* ==========================================================================
-   OPTIMISATIONS ÉCRANS MOBILES (Responsive Design)
+   OPTIMISATIONS MOBILES
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Navbar compacte */
     .nav-links, .btn-nav-cta {
-        display: none !important; /* Masque les liens encombrants sur mobile */
+        display: none !important;
     }
     .nav-container {
         padding: 12px 16px;
     }
     
-    /* Section d'accueil ajustée */
     .hero {
         padding: 100px 16px 40px;
         background-image: linear-gradient(
@@ -653,22 +700,22 @@ section {
         justify-content: center;
     }
 
-    /* Sections générales */
+    /* Sections */
     section {
         padding: 60px 0;
     }
     .section-title {
         font-size: 1.6rem;
     }
-    .modules-grid {
+    .modules-grid, .support-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
-    .module-card {
+    .module-card, .support-card {
         padding: 24px;
     }
 
-    /* Fenêtres modales */
+    /* Modales */
     .modal-window {
         padding: 24px;
     }
@@ -676,7 +723,7 @@ section {
         font-size: 1.4rem;
     }
 
-    /* Pied de page */
+    /* Footer */
     .footer-container {
         flex-direction: column;
         text-align: center;
